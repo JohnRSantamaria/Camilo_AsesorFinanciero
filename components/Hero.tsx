@@ -15,5 +15,7 @@ function PrincipalImage() {
 }
 
 export default function Hero() {
-	return <section className='flex gap-4 h-[calc(100vh-6rem)] select-none'></section>;
+	return <section className='flex gap-4 h-screen select-none bg-red-500'>
+		
+	</section>;
 }
