@@ -16,7 +16,7 @@ export default function MenuMobile({isOpen, setIsOpen}: {isOpen: boolean; setIsO
 					animate={{opacity: 1, y: 0}}
 					exit={{opacity: 0, y: 10}}
 					transition={{duration: 0.2}}
-					className='fixed top-12 bottom-0 left-0 right-0 z-40 bg-light dark:bg-dark '
+					className='fixed top-14 bottom-0 left-0 right-0 z-40 bg-light dark:bg-dark '
 				>
 					<nav className='flex flex-col gap-16 px-4 py-4'>
 						<ul className='flex flex-col gap-16 items-center justify-start h-fit text-2xl capitalize'>
