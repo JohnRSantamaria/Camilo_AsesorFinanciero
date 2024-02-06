@@ -5,7 +5,7 @@ import SeccitionsLayout from './SeccitionsLayout';
 import financial_education from '@/public/Image/Investment_portfolio_1.webp';
 import expense_control from '@/public/Image/expense_control.webp';
 import budget from '@/public/Image/budget.webp';
-import portfolio from '@/public/Image/Portfolio.webp';
+import portfolio from '@/public/Image/portfolio.webp';
 import Image, {StaticImageData} from 'next/image';
 import Button from './common/Button';
 
