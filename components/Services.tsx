@@ -39,10 +39,7 @@ function CardServices({title, image}: CardServicesProps) {
 
 export default function Services() {
 	return (
-		<div
-			className='flex flex-col '
-			id='servicios'
-		>
+		<SeccitionsLayout id='servicios'>
 			<AnimatedText
 				text='Servicios'
 				className='mb-16 '
@@ -65,6 +62,6 @@ export default function Services() {
 					image={portfolio}
 				/>
 			</div>
-		</div>
+		</SeccitionsLayout>
 	);
 }

@@ -10,7 +10,7 @@ export default function SeccitionsLayout({children, className, id}: SeccitionsLa
 	return (
 		<section
 			id={id}
-			className={`flex gap-4 h-[calc(100vh-50px)] select-none ${className}`}
+			className={`flex flex-col min-h-[calc(100vh-50px)]  select-none ${className}`}
 		>
 			{children}
 		</section>
