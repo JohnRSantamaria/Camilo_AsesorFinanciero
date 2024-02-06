@@ -5,12 +5,12 @@ import principalImage from '@/public/Image/MoneyBalance.webp';
 import SeccitionsLayout from './SeccitionsLayout';
 import AnimatedText from './framerMotion/AnimatedText';
 
-function PrincipalImage() {
+function PrincipalImage({className}: {className?: string}) {
 	return (
 		<Image
 			src={principalImage}
 			alt='varios montones de monedas y una flecha que sube y baja'
-			className='object-contain px-16 md:px-0'
+			className={`${className} object-contain`}
 		/>
 	);
 }
@@ -19,23 +19,19 @@ export default function Hero() {
 	return (
 		<SeccitionsLayout
 			id='/'
-			className='grid  grid-cols-1 md:grid-cols-2 md:gap-4 '
+			className='flex-col items-center justify-evenly pb-20 lg:pb-0 px-4'
 		>
-			<div className='flex flex-col items-center justify-evenly gap-4 px-4 md:order-1 '>
-				<AnimatedText text='Educación y mentalidad financiera' />
-				<PrincipalImage />
-				<button className='px-4 py-2 rounded bg-gradient-to-t from-primary via-primaryLight to-primaryDark text-white uppercase active:scale-95 transition-transform duration-200 hover:shadow-md'>
-					Agenda una cita
-				</button>
-				<p className='hidden md:block'>
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, aspernatur. Id est nam dicta
-					dolorem obcaecati eum, ducimus illum natus tempore temporibus expedita placeat
-					necessitatibus reiciendis optio a ipsum voluptate!
-				</p>
-			</div>
-			<div className='md:flex items-center justify-center hidden  '>
-				<PrincipalImage />
-			</div>
+			<AnimatedText
+				text='Educación y mentalidad financiera'
+				className='!text-3xl sm:!text-4xl md:!text-5xl lg:!text-6xl'
+			/>
+
+			<p className='text-xl text-center lg:text-4xl'>Construllamos tu futuro financiero juntos!</p>
+			<button className='px-4 py-2 rounded bg-gradient-to-t from-primary via-primaryLight to-primaryDark text-white uppercase active:scale-95 transition-transform duration-200 hover:shadow-md'>
+				Agenda una cita
+			</button>
+
+			<PrincipalImage className='sm:w-3/4 lg:h-60 xl:h-80 2xl:h-96 w-full' />
 		</SeccitionsLayout>
 	);
 }

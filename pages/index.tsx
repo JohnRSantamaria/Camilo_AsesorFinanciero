@@ -13,6 +13,7 @@ import Link from 'next/link';
 import {IoArrowUpCircleOutline} from 'react-icons/io5';
 
 const raleway = Raleway({subsets: ['latin']});
+
 export default function Home() {
 	return (
 		<>
