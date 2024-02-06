@@ -11,6 +11,7 @@ function PrincipalImage({className}: {className?: string}) {
 			src={principalImage}
 			alt='varios montones de monedas y una flecha que sube y baja'
 			className={`${className} object-contain`}
+			priority
 		/>
 	);
 }
