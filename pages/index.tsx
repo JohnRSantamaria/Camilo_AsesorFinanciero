@@ -36,7 +36,7 @@ export default function Home() {
 					<AboutMe />
 					<ContactMe />
 					<section>
-						<div className='fixed bottom-10 right-10 cursor-pointer hover:text-yellow-200'>
+						<div className='fixed bottom-8 right-4 cursor-pointer hover:text-yellow-200'>
 							<Link
 								rel='stylesheet'
 								href='/'

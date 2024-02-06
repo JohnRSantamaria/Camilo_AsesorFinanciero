@@ -1,9 +1,10 @@
 import React from 'react';
 import AnimatedText from './framerMotion/AnimatedText';
+import SeccitionsLayout from './SeccitionsLayout';
 
 export default function Services() {
 	return (
-		<section
+		<SeccitionsLayout
 			className='flex gap-4 h-screen items-start '
 			id='servicios'
 		>
@@ -11,6 +12,6 @@ export default function Services() {
 				text='Servicios'
 				className='mb-16 '
 			/>
-		</section>
+		</SeccitionsLayout>
 	);
 }
