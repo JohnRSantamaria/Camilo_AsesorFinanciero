@@ -18,16 +18,15 @@ export default function Home() {
 	return (
 		<>
 			<Head>
-				<title>My Portfolio Built with Nextjs</title>
+				<title>Camilo Meza Asesoria Financiera</title>
 				<meta
 					name='description'
-					content='Next.js developer portfolio Showcase your skills as a 
-          full-stack developer and software engineer.'
+					content='SPA de asesoria financiera personal y empresarial en la ciudad de Bogotá'
 				/>
 			</Head>
 			<main
 				id='home'
-				className={`flex min-h-screen flex-col items-center justify-between dark:bg-dark ${raleway.className}  ml-auto mr-auto overflow-hidden`}
+				className={`flex min-h-screen flex-col items-center justify-between bg-light dark:bg-dark ${raleway.className}  ml-auto mr-auto overflow-hidden`}
 			>
 				<Layout className='flex flex-col gap-2'>
 					<NavbarMenu />
