@@ -1,16 +1,14 @@
 import React from 'react';
 import AnimatedText from './framerMotion/AnimatedText';
+import SectionsLayout from './SectionsLayout';
 
 export default function ContactMe() {
 	return (
-		<section
+		<SectionsLayout
 			className='flex gap-4 h-screen items-start '
 			id='contacto'
 		>
-			<AnimatedText
-				text='Contactame'
-				className='mb-16 '
-			/>
-		</section>
+			<AnimatedText text='Contactame' />
+		</SectionsLayout>
 	);
 }

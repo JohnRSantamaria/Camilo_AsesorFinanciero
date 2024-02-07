@@ -9,7 +9,7 @@ interface CustomLinkProps {
 
 export function CustomLink({href, title, className = ''}: CustomLinkProps) {
 	const router = useRouter();
-
+	const isActive = router.pathname === href.split('#')[0]; // Solo considera la parte de la URL antes del fragmento
 	return (
 		<Link
 			href={href}
@@ -19,12 +19,11 @@ export function CustomLink({href, title, className = ''}: CustomLinkProps) {
 			{title}
 
 			<span
-				className={`
-            h-[1px] inline-block bg-primary
-            absolute left-0 -bottom-0.5
-            group-hover:w-full transition-[width] ease duration-300
-            ${router.asPath === href ? 'w-full' : 'w-0'}
-            dark:bg-primaryDark `}
+				className={` h-[1px] inline-block bg-primary absolute left-0 -bottom-0.5  group-hover:w-full transition-[width] ease duration-300 dark:bg-primaryDark ${
+					isActive ? 'w-full' : 'w-0'
+				}
+			
+			`}
 			>
 				&nbsp;
 			</span>

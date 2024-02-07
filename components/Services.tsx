@@ -1,14 +1,15 @@
 import React from 'react';
 import AnimatedText from './framerMotion/AnimatedText';
-import SeccitionsLayout from './SeccitionsLayout';
+import SectionsLayout from './SectionsLayout';
 
 import financial_education from '@/public/Image/Investment_portfolio_1.webp';
 import expense_control from '@/public/Image/expense_control.webp';
 import budget from '@/public/Image/budget.webp';
 import portfolio from '@/public/Image/portfolio.webp';
-import Image, {StaticImageData} from 'next/image';
-import Button from './common/Button';
 
+import Image, {StaticImageData} from 'next/image';
+
+import Button from './common/Button';
 interface CardServicesProps {
 	title: string;
 	image: StaticImageData;
@@ -16,21 +17,21 @@ interface CardServicesProps {
 
 function CardServices({title, image}: CardServicesProps) {
 	return (
-		<section className='flex flex-col gap-4 items-center bg-stone-200 dark:bg-zinc-800 rounded-md p-2 shadow-md overflow-hidden py-6 h-fit '>
-			<h2 className='font-semibold text-center text-xl'>{title}</h2>
-			<div className='flex flex-col gap-4 md:flex-row md:items-center md:gap-20 md:justify-evenly '>
+		<section className='flex flex-col gap-4 items-center bg-stone-200 dark:bg-zinc-800 rounded-md p-2 shadow-md overflow-hidden py-6 h-fit'>
+			<h2 className='font-semibold text-center text-xl sm:text-4xl md:text-3xl'>{title}</h2>
+			<div className='flex flex-col gap-4  md:flex-row items-center justify-evenly '>
 				<Image
 					src={image}
 					alt='imagen de educación financiera'
-					className='lg:w-52 '
+					className='w-48'
 				/>
-				<div className='flex flex-col gap-4 lg:w-1/2'>
-					<p>
+				<div className='flex flex-col gap-4 items-center xl:w-1/2'>
+					<p className='text-center max-w-96'>
 						Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laudantium ad aperiam quod
 						recusandae dolor. Ex cum quas suscipit commodi libero quaerat consequatur tempore,
 						corrupti incidunt quis explicabo laborum dolor laboriosam.
 					</p>
-					<Button className='w-full'>Conoce mas</Button>
+					<Button className='max-w-96 w-full'>Conoce mas</Button>
 				</div>
 			</div>
 		</section>
@@ -39,9 +40,9 @@ function CardServices({title, image}: CardServicesProps) {
 
 export default function Services() {
 	return (
-		<SeccitionsLayout id='servicios'>
+		<SectionsLayout id='servicios'>
 			<AnimatedText text='Servicios' />
-			<div className='grid lg:grid-cols-2 gap-8 md:gap-4 w-full  h-full p-4 '>
+			<div className='grid lg:grid-cols-2 grid-cols-1 justify-center gap-8 w-full  h-full '>
 				<CardServices
 					title='Estructura de presupuesto'
 					image={financial_education}
@@ -59,6 +60,6 @@ export default function Services() {
 					image={portfolio}
 				/>
 			</div>
-		</SeccitionsLayout>
+		</SectionsLayout>
 	);
 }
