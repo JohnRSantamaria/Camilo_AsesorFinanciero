@@ -40,11 +40,8 @@ function CardServices({title, image}: CardServicesProps) {
 export default function Services() {
 	return (
 		<SeccitionsLayout id='servicios'>
-			<AnimatedText
-				text='Servicios'
-				className='mb-16 '
-			/>
-			<div className='grid lg:grid-cols-2 gap-4 w-full  h-full p-4 '>
+			<AnimatedText text='Servicios' />
+			<div className='grid lg:grid-cols-2 gap-8 md:gap-4 w-full  h-full p-4 '>
 				<CardServices
 					title='Estructura de presupuesto'
 					image={financial_education}

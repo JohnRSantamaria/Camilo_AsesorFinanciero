@@ -13,7 +13,7 @@ export default function AnimatedText({
 }: AnimatedTextProps): React.ReactElement {
 	const {ref, inView} = useInView({
 		threshold: 0.5,
-		triggerOnce: false,
+		triggerOnce: true,
 	});
 
 	const quote = {
