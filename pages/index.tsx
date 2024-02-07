@@ -6,6 +6,7 @@ import MobileNabBarMenu from '@/components/MobileNabBarMenu';
 import NavbarMenu from '@/components/NavbarMenu';
 import Services from '@/components/Services';
 import ContactMe from '@/components/contactMe';
+import {EmailTemplate} from '@/components/email/emailTemplate';
 import {Raleway} from 'next/font/google';
 import Head from 'next/head';
 import Link from 'next/link';
