@@ -4,6 +4,7 @@ import Image from 'next/image';
 import principalImage from '@/public/Image/MoneyBalance.webp';
 import SectionsLayout from './SectionsLayout';
 import AnimatedText from './framerMotion/AnimatedText';
+import {useRouter} from 'next/router';
 
 function PrincipalImage({className}: {className?: string}) {
 	return (
@@ -17,6 +18,12 @@ function PrincipalImage({className}: {className?: string}) {
 }
 
 export default function Hero() {
+	const router = useRouter();
+	const handleClick = () => {
+		// confirm-appointment/
+		router.push('/confirm-appointment');
+	};
+
 	return (
 		<SectionsLayout
 			id='/'
@@ -30,7 +37,10 @@ export default function Hero() {
 			<p className='text-lg sm:text-2xl text-center lg:text-4xl'>
 				Construllamos tu futuro financiero juntos!
 			</p>
-			<button className='px-4 py-2 rounded bg-gradient-to-t from-primary via-primaryLight to-primaryDark text-white uppercase active:scale-95 transition-transform duration-300 hover:shadow-md hover:scale-105 md:w-96 md:py-4 font-semibold tracking-widest '>
+			<button
+				onClick={handleClick}
+				className='px-4 py-2 rounded bg-gradient-to-t from-primary via-primaryLight to-primaryDark text-white uppercase active:scale-95 transition-transform duration-300 hover:shadow-md hover:scale-105 md:w-96 md:py-4 font-semibold tracking-widest '
+			>
 				Agenda una cita
 			</button>
 

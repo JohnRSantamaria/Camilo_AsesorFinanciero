@@ -10,12 +10,18 @@ import portfolio from '@/public/Image/portfolio.webp';
 import Image, {StaticImageData} from 'next/image';
 
 import Button from './common/Button';
+import {useRouter} from 'next/router';
 interface CardServicesProps {
 	title: string;
 	image: StaticImageData;
 }
 
 function CardServices({title, image}: CardServicesProps) {
+	const router = useRouter();
+	const handleClick = () => {
+		router.push('/confirm-appointment');
+	};
+
 	return (
 		<section className='flex flex-col gap-4 items-center bg-stone-200 dark:bg-zinc-800 rounded-md p-2 shadow-md overflow-hidden py-6 h-fit'>
 			<h2 className='font-semibold text-center text-xl sm:text-4xl md:text-3xl'>{title}</h2>
@@ -31,7 +37,12 @@ function CardServices({title, image}: CardServicesProps) {
 						recusandae dolor. Ex cum quas suscipit commodi libero quaerat consequatur tempore,
 						corrupti incidunt quis explicabo laborum dolor laboriosam.
 					</p>
-					<Button className='max-w-96 w-full'>Conoce mas</Button>
+					<Button
+						onClick={handleClick}
+						className='max-w-96 w-full'
+					>
+						Conoce mas
+					</Button>
 				</div>
 			</div>
 		</section>

@@ -23,7 +23,7 @@ function FormContacMe() {
 
 			if (data === 'ok') {
 				const date = new Date();
-				date.setTime(date.getTime() + 1 * 60 * 1000);
+				date.setTime(date.getTime() + 30 * 60 * 1000);
 				Cookies.set('formSubmitted', 'true', {expires: date});
 				router.reload();
 				await successAlert(
@@ -183,14 +183,14 @@ export default function ContactMe() {
 					<div className='w-full bg-stone-200 dark:bg-zinc-800 rounded-lg p-4 text-center'>
 						<h3 className='text-2xl lg:text-4xl mb-8'>Mensaje enviado</h3>
 						<p className='mb-4 lg:text-2xl'>
-							Gracias por contactarme, te responderé lo antes posible
+							Gracias por contactarme, te responderé lo antes posible.
 						</p>
 					</div>
 				</div>
 			) : (
-				<section className='flex flex-col justify-start w-full h-full '>
-					<h3 className='text-2xl  mb-8'>Enviame un mensaje</h3>
-					<p className='mb-4'>Si tienes alguna duda o solicitud por favor hazmelo saber </p>
+				<section className='flex flex-col justify-start lg:justify-evenly w-full h-full pb-20'>
+					<h3 className='text-2xl lg:text-4xl'>Envíame un mensaje</h3>
+					<p className='lg:text-2xl'>Si tienes alguna duda o solicitud, por favor házmelo saber.</p>
 					<FormContacMe />
 				</section>
 			)}

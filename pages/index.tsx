@@ -48,7 +48,7 @@ export default function Home() {
 						</div>
 					</section>
 				</Layout>
-				{/* <Footer /> */}
+				<Footer />
 			</main>
 		</>
 	);

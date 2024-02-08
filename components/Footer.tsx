@@ -6,6 +6,8 @@ import {FaWhatsapp} from 'react-icons/fa';
 import {IoPhonePortraitOutline} from 'react-icons/io5';
 import {useRouter} from 'next/router';
 
+import Logo from '../public/Image/svg/logo';
+
 interface CardContactProps {
 	icon: React.ReactNode;
 	title: string;
@@ -28,10 +30,12 @@ export default function Footer() {
 	const router = useRouter();
 
 	return (
-		<footer className='w-full text-primary dark:text-primaryDark bg-zinc-800'>
-			<section className='flex  max-w-screen-2xl  ml-auto mr-auto'>
-				<div className='w-1/6 h-52 text-dark border bg-gray-300 '>LOGO</div>
-				<section className='flex justify-evenly items-center gap-2 w-5/6  '>
+		<footer className='h-fit w-full border'>
+			<div className=''>
+				<Logo className='w-full ' />
+			</div>
+
+			{/* <section className='flex justify-evenly items-center gap-2 w-5/6  '>
 					<CardContact
 						icon={<HiOutlineMail className='w-7 h-auto' />}
 						title='Email'
@@ -51,8 +55,7 @@ export default function Footer() {
 							router.push('#contacto');
 						}}
 					/>
-				</section>
-			</section>
+				</section> */}
 		</footer>
 	);
 }
