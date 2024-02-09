@@ -7,7 +7,7 @@ export default function MobileNabBarMenu() {
 		<header className='sm:hidden items-center justify-between w-full py-2 px-4 font-medium dark:text-primaryDark z-10  '>
 			<div className='w-full flex justify-between items-center '>
 				<Logo className='w-10 h-auto' />
-				<span className='text-lg'>Camilo Meza</span>
+				<span className='text-2xl font-semibold '>Camilo Meza</span>
 				<XButton />
 			</div>
 		</header>

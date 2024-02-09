@@ -45,7 +45,7 @@ export default function AnimatedText({
 
 	return (
 		<div className='w-full mx-auto flex items-center justify-center text-center overflow-hidden'>
-			<motion.h1
+			<motion.h2
 				ref={ref}
 				className={`inline-block w-full text-primary font-bold capitalize text-4xl md:text-5xl lg:text-6xl py-4 ${className}`}
 				variants={quote}
@@ -61,7 +61,7 @@ export default function AnimatedText({
 						{word}&nbsp;
 					</motion.span>
 				))}
-			</motion.h1>
+			</motion.h2>
 		</div>
 	);
 }
