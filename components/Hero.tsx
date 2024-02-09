@@ -27,7 +27,7 @@ export default function Hero() {
 	return (
 		<SectionsLayout
 			id='/'
-			className='flex-col items-center justify-evenly py-10'
+			className='flex-col items-center justify-evenly md:pb-0 pb-20'
 		>
 			<AnimatedText
 				text='Educación y mentalidad financiera'
