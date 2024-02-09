@@ -188,7 +188,7 @@ export default function ContactMe() {
 					</div>
 				</div>
 			) : (
-				<section className='flex flex-col gap-4 justify-start lg:justify-evenly w-full h-full pb-20'>
+				<section className='flex flex-col gap-4 justify-start lg:justify-evenly w-full h-full py-10'>
 					<h3 className='text-2xl lg:text-4xl'>Envíame un mensaje</h3>
 					<p className='lg:text-2xl'>Si tienes alguna duda o solicitud, por favor házmelo saber.</p>
 					<FormContacMe />

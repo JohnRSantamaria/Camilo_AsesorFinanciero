@@ -11,7 +11,7 @@ function PrincipalImage({className}: {className?: string}) {
 		<Image
 			src={principalImage}
 			alt='varios montones de monedas y una flecha que sube y baja'
-			className={`${className} w-96 h-96 object-contain`}
+			className={`${className} w-auto h-72 object-contain`}
 			priority={true}
 		/>
 	);
@@ -27,7 +27,7 @@ export default function Hero() {
 	return (
 		<SectionsLayout
 			id='/'
-			className='flex-col items-center justify-evenly sm:pb-20'
+			className='flex-col items-center justify-evenly py-10'
 		>
 			<AnimatedText
 				text='Educación y mentalidad financiera'
@@ -44,7 +44,7 @@ export default function Hero() {
 				Agenda una cita
 			</button>
 
-			<PrincipalImage className='sm:w-3/4 lg:h-60 xl:h-80 2xl:h-96 w-full' />
+			<PrincipalImage className='md:pb-10' />
 		</SectionsLayout>
 	);
 }
