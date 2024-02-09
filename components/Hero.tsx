@@ -27,7 +27,7 @@ export default function Hero() {
 	return (
 		<SectionsLayout
 			id='/'
-			className='flex-col items-center justify-evenly pb-20'
+			className='flex-col items-center justify-evenly sm:pb-20'
 		>
 			<AnimatedText
 				text='Educación y mentalidad financiera'
