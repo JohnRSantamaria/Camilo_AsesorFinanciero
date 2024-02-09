@@ -30,32 +30,39 @@ export default function Footer() {
 	const router = useRouter();
 
 	return (
-		<footer className='h-fit w-full border'>
-			<div className=''>
-				<Logo className='w-full ' />
-			</div>
-
-			{/* <section className='flex justify-evenly items-center gap-2 w-5/6  '>
-					<CardContact
-						icon={<HiOutlineMail className='w-7 h-auto' />}
-						title='Email'
-					/>
-					<CardContact
-						icon={<FaInstagram className='w-7 h-auto' />}
-						title='Instragram'
-					/>
-					<CardContact
-						icon={<FaWhatsapp className='w-7 h-auto' />}
-						title='Whatsapp'
-					/>
-					<CardContact
-						icon={<IoPhonePortraitOutline className='w-7 h-auto' />}
-						title='Contactame'
-						handleClick={() => {
-							router.push('#contacto');
-						}}
-					/>
-				</section> */}
+		<footer className='h-fit w-full text-primary bg-stone-200 dark:bg-zinc-800 py-4 px-2 '>
+			<section className='flex flex-col gap-2 sm:flex-row items-center justify-evenly max-w-screen-2xl ml-auto mr-auto '>
+				<Logo className='w-auto h-20 sm:h-28 ' />
+				<div className='flex flex-col  items-center justify-evenly  '>
+					<h1 className='text-center text-nowrap font-bold text-2xl lg:text-4xl'>Camilo Meza</h1>
+					<h2 className='text-center text-nowrap lg:text-2xl '>Asesor Financiero</h2>
+				</div>
+				<div className='flex items-center justify-evenly gap-8 '>
+					<div className='flex flex-col gap-4'>
+						<CardContact
+							icon={<HiOutlineMail className='w-7 h-auto' />}
+							title='Email'
+						/>
+						<CardContact
+							icon={<FaInstagram className='w-7 h-auto' />}
+							title='Instragram'
+						/>
+					</div>
+					<div className='flex flex-col gap-4'>
+						<CardContact
+							icon={<FaWhatsapp className='w-7 h-auto' />}
+							title='Whatsapp'
+						/>
+						<CardContact
+							icon={<IoPhonePortraitOutline className='w-7 h-auto' />}
+							title='Contactame'
+							handleClick={() => {
+								router.push('#contacto');
+							}}
+						/>
+					</div>
+				</div>
+			</section>
 		</footer>
 	);
 }

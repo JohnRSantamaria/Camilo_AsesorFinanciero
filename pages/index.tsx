@@ -1,17 +1,17 @@
-import AboutMe from '@/components/AboutMe';
-import Footer from '@/components/Footer';
-import Hero from '@/components/Hero';
-import Layout from '@/components/Layout';
-import MobileNabBarMenu from '@/components/MobileNabBarMenu';
-import NavbarMenu from '@/components/NavbarMenu';
-import Services from '@/components/Services';
-import ContactMe from '@/components/contactMe';
-import {EmailTemplate} from '@/components/email/emailTemplate';
-import {Raleway} from 'next/font/google';
-import Head from 'next/head';
 import Link from 'next/link';
+import Head from 'next/head';
+import {Raleway} from 'next/font/google';
 
 import {IoArrowUpCircleOutline} from 'react-icons/io5';
+
+import Hero from '@/components/Hero';
+import Footer from '@/components/Footer';
+import Layout from '@/components/Layout';
+import AboutMe from '@/components/AboutMe';
+import Services from '@/components/Services';
+import ContactMe from '@/components/contactMe';
+import NavbarMenu from '@/components/NavbarMenu';
+import MobileNabBarMenu from '@/components/MobileNabBarMenu';
 
 const raleway = Raleway({subsets: ['latin']});
 
@@ -29,24 +29,22 @@ export default function Home() {
 				id='home'
 				className={`flex min-h-screen flex-col items-center justify-between bg-light dark:bg-dark ${raleway.className}  ml-auto mr-auto overflow-hidden`}
 			>
-				<Layout className='flex flex-col gap-2'>
+				<Layout className='relative flex flex-col gap-2'>
 					<NavbarMenu />
 					<MobileNabBarMenu />
 					<Hero />
 					<Services />
 					<AboutMe />
 					<ContactMe />
-					<section>
-						<div className='fixed bottom-8 right-4 cursor-pointer hover:text-yellow-200'>
-							<Link
-								rel='stylesheet'
-								href='/'
-								scroll={true}
-							>
-								<IoArrowUpCircleOutline className='text-primary dark:text-primaryDark w-10 h-full' />
-							</Link>
-						</div>
-					</section>
+					<div className='fixed bottom-8 right-4 cursor-pointer'>
+						<Link
+							rel='stylesheet'
+							href='/'
+							scroll={true}
+						>
+							<IoArrowUpCircleOutline className='text-dark dark:text-white w-10 h-full' />
+						</Link>
+					</div>
 				</Layout>
 				<Footer />
 			</main>

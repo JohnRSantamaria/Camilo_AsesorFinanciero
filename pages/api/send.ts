@@ -9,7 +9,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
 
 	const {error} = await resend.emails.send({
 		from: 'Acme <onboarding@resend.dev>',
-		to: [email],
+		to: ['santamariajohnd@gmail.com'],
 		subject: subject,
 		text: message,
 		react: EmailTemplate({firstName: name, cellPhone, email, subject, message}),

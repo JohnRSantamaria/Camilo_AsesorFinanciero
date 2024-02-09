@@ -31,10 +31,10 @@ function FormContacMe() {
 					'Gracias por contactarme, te responderé lo antes posible'
 				);
 			} else {
-				await errorAlert('Error al enviar el mensaje', 'Por favor intenta de nuevo más tarde');
+				await errorAlert('Error al enviar el mensaje', data.message);
 			}
-		} catch (error) {
-			await errorAlert('Error al enviar el mensaje', 'Por favor intenta de nuevo más tarde');
+		} catch (error: any) {
+			await errorAlert('Error al enviar el mensaje', error.message);
 		} finally {
 			setSubmitting(false);
 			resetForm();
@@ -76,7 +76,7 @@ function FormContacMe() {
 					<Field
 						name='name'
 						type='text'
-						className='w-full p-2 border rounded-lg bg-light dark:bg-dark focus:outline-none focus:ring-1 focus:ring-primary'
+						className='w-full p-2  rounded-lg bg-light dark:bg-dark focus:outline-none focus:ring-1 focus:ring-primary'
 						autoComplete='off'
 						maxLength={51}
 					/>
@@ -91,7 +91,7 @@ function FormContacMe() {
 							<Field
 								name='cellPhone'
 								type='text'
-								className='w-full p-2 border rounded-lg bg-light dark:bg-dark focus:outline-none focus:ring-1 focus:ring-primary'
+								className='w-full p-2  rounded-lg bg-light dark:bg-dark focus:outline-none focus:ring-1 focus:ring-primary'
 								autoComplete='off'
 								maxLength={10}
 							/>
@@ -106,7 +106,7 @@ function FormContacMe() {
 							<Field
 								name='email'
 								type='email'
-								className='w-full p-2 border rounded-lg bg-light dark:bg-dark focus:outline-none focus:ring-1 focus:ring-primary'
+								className='w-full p-2 rounded-lg bg-light dark:bg-dark focus:outline-none focus:ring-1 focus:ring-primary'
 								autoComplete='off'
 								maxLength={50}
 							/>
@@ -122,7 +122,7 @@ function FormContacMe() {
 						<Field
 							name='subject'
 							type='text'
-							className='w-full p-2 border rounded-lg bg-light dark:bg-dark focus:outline-none focus:ring-1 focus:ring-primary'
+							className='w-full p-2 rounded-lg bg-light dark:bg-dark focus:outline-none focus:ring-1 focus:ring-primary'
 							autoComplete='off'
 							maxLength={51}
 						/>
@@ -135,7 +135,7 @@ function FormContacMe() {
 						<Field
 							name='message'
 							as='textarea'
-							className='w-full p-2 border rounded-lg bg-light dark:bg-dark focus:outline-none focus:ring-1 focus:ring-primary'
+							className='w-full p-2  rounded-lg bg-light dark:bg-dark focus:outline-none focus:ring-1 focus:ring-primary'
 							autoComplete='off'
 							maxLength={500}
 						/>
@@ -174,12 +174,12 @@ export default function ContactMe() {
 
 	return (
 		<SectionsLayout
-			className='flex gap-4 h-screen items-start '
+			className='flex gap-4 items-start !min-h-fit pb-12'
 			id='contacto'
 		>
 			<AnimatedText text='Contactame' />
 			{isFormSubmitted ? (
-				<div className='flex flex-col h-full items-center justify-center w-full '>
+				<div className='flex flex-col items-center justify-center w-full  '>
 					<div className='w-full bg-stone-200 dark:bg-zinc-800 rounded-lg p-4 text-center'>
 						<h3 className='text-2xl lg:text-4xl mb-8'>Mensaje enviado</h3>
 						<p className='mb-4 lg:text-2xl'>
@@ -188,7 +188,7 @@ export default function ContactMe() {
 					</div>
 				</div>
 			) : (
-				<section className='flex flex-col justify-start lg:justify-evenly w-full h-full pb-20'>
+				<section className='flex flex-col gap-4 justify-start lg:justify-evenly w-full h-full pb-20'>
 					<h3 className='text-2xl lg:text-4xl'>Envíame un mensaje</h3>
 					<p className='lg:text-2xl'>Si tienes alguna duda o solicitud, por favor házmelo saber.</p>
 					<FormContacMe />
