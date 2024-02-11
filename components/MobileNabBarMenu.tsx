@@ -1,6 +1,6 @@
 import React from 'react';
 import XButton from './xButton';
-import Logo from '@/public/Image/svg/logo';
+import Logo from '@/public/Image/svg/logo2';
 
 export default function MobileNabBarMenu() {
 	return (

@@ -6,7 +6,7 @@ import {FaWhatsapp} from 'react-icons/fa';
 import {IoPhonePortraitOutline} from 'react-icons/io5';
 import {useRouter} from 'next/router';
 
-import Logo from '../public/Image/svg/logo';
+import Logo from '../public/Image/svg/logo2';
 
 interface CardContactProps {
 	icon: React.ReactNode;
