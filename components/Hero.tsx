@@ -10,7 +10,7 @@ function PrincipalImage({className}: {className?: string}) {
 		<Image
 			src={heroImage}
 			alt='varios montones de monedas y una flecha que sube y baja'
-			className={`${className} w-auto h-96 md:full object-contain`}
+			className={`${className} w-auto h-96 md:h-5/6 object-contain`}
 			priority={true}
 		/>
 	);
