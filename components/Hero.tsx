@@ -24,9 +24,9 @@ export default function Hero() {
 	};
 
 	return (
-		<section
+		<SectionsLayout
 			id='/'
-			className='h-[calc(100vh-6rem)] flex flex-col md:flex-row gap-8 justify-center items-center '
+			className='flex flex-col md:flex-row gap-8 justify-center items-center '
 		>
 			<div className='md:w-1/2 h-full w-full md:order-1 order-2 px-4'>
 				<PrincipalImage />
@@ -49,6 +49,6 @@ export default function Hero() {
 					</button>
 				</div>
 			</div>
-		</section>
+		</SectionsLayout>
 	);
 }
