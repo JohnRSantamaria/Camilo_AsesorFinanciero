@@ -177,7 +177,7 @@ export default function ContactMe() {
 			className='flex gap-4 items-start !min-h-fit pb-12'
 			id='contacto'
 		>
-			<AnimatedText text='Contactame' />
+			<AnimatedText text='Contáctame' />
 			{isFormSubmitted ? (
 				<div className='flex flex-col items-center justify-center w-full  '>
 					<div className='w-full bg-stone-200 dark:bg-zinc-800 rounded-lg p-4 text-center'>

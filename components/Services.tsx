@@ -9,40 +9,27 @@ import portfolio from '@/public/Image/portfolio.webp';
 
 import Image, {StaticImageData} from 'next/image';
 
-import Button from './common/Button';
-import {useRouter} from 'next/router';
 interface CardServicesProps {
 	title: string;
+	text: string;
 	image: StaticImageData;
+	className?: string;
 }
 
-function CardServices({title, image}: CardServicesProps) {
-	const router = useRouter();
-	const handleClick = () => {
-		router.push('/confirm-appointment');
-	};
-
+function CardServices({title, text, image, className}: CardServicesProps) {
 	return (
-		<section className='flex flex-col gap-4 items-center bg-stone-200 dark:bg-zinc-800 rounded-md p-2 shadow-md overflow-hidden py-6 h-fit'>
+		<section
+			className={`${className} flex flex-col gap-4 items-center bg-stone-200 dark:bg-zinc-800 rounded-md p-2 shadow-md overflow-hidden py-6 h-fit md:h-96 `}
+		>
 			<h2 className='font-semibold text-center text-xl sm:text-4xl md:text-3xl'>{title}</h2>
 			<div className='flex flex-col gap-4  md:flex-row items-center justify-evenly '>
 				<Image
 					src={image}
 					alt='imagen de educación financiera'
-					className='w-48'
+					className='w-auto h-40'
 				/>
 				<div className='flex flex-col gap-4 items-center xl:w-1/2'>
-					<p className='text-center max-w-96'>
-						Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laudantium ad aperiam quod
-						recusandae dolor. Ex cum quas suscipit commodi libero quaerat consequatur tempore,
-						corrupti incidunt quis explicabo laborum dolor laboriosam.
-					</p>
-					<Button
-						onClick={handleClick}
-						className='max-w-96 w-full'
-					>
-						Conoce mas
-					</Button>
+					<p className='text-justify max-w-96'>{text}</p>
 				</div>
 			</div>
 		</section>
@@ -56,19 +43,25 @@ export default function Services() {
 			<div className='grid lg:grid-cols-2 grid-cols-1 justify-center gap-8 w-full  h-full '>
 				<CardServices
 					title='Estructura de presupuesto'
-					image={financial_education}
+					text='Enfoco mis servicios en la Estructuración de Presupuesto, donde trabajamos juntos para establecer metas financieras alcanzables y crear un plan adaptado a tus necesidades. Mi objetivo es proporcionarte las herramientas necesarias para asignar recursos de manera eficiente y construir un plan financiero que te permita alcanzar tus objetivos a corto y largo plazo.
+					'
+					image={portfolio}
 				/>
 				<CardServices
 					title='Control de gastos'
+					text='Mi asesoría especializada en Control de Gastos te ofrece un enfoque personalizado para tomar el control de tus finanzas. Trabajaremos mano a mano para identificar áreas de gasto superfluo, establecer límites razonables y proporcionarte herramientas prácticas para gestionar y reducir tus gastos, optimizando así tus recursos económicos.
+					'
 					image={expense_control}
 				/>
 				<CardServices
 					title='Liquidación de deudas'
+					text='Acelero la Liquidación de Deudas, ofreciéndote estrategias efectivas para abordar este desafío. A través de un enfoque personalizado, te guiaré en la creación de planes de pago, negociación de tasas de interés y consolidación de deudas para liberarte del peso financiero y avanzar hacia la libertad económica.'
 					image={budget}
 				/>
 				<CardServices
 					title='Portafolio de inversión'
-					image={portfolio}
+					text='Mi servicio de Portafolio de Inversión se centra en diseñar estrategias adaptadas a tus objetivos financieros. Ya sea que busques crecimiento a largo plazo, ingresos estables o una combinación, te proporcionaré asesoramiento en la selección de inversiones diversificadas y estrategias que maximicen el rendimiento de tu dinero.'
+					image={financial_education}
 				/>
 			</div>
 		</SectionsLayout>
