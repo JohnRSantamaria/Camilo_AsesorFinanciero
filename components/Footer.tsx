@@ -18,7 +18,7 @@ function CardContact({icon, title, url, target = '_blank'}: CardContactProps) {
 		<Link
 			href={url}
 			target={target}
-			className='flex gap-2 items-center justify-start hover:opacity-60 cursor-pointer active:scale-95 transition-transform duration-300'
+			className='flex gap-2 items-center justify-start hover:opacity-60 cursor-pointer active:scale-95 transition-transform duration-300 capitalize'
 		>
 			{icon}
 			{title}
@@ -58,7 +58,7 @@ export default function Footer() {
 						/>
 						<CardContact
 							icon={<AiOutlinePhone className='w-7 h-auto' />}
-							title='contactame'
+							title='Contactamé'
 							url='#contacto'
 							target=''
 						/>
