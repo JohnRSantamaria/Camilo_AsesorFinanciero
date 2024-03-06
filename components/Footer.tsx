@@ -28,7 +28,7 @@ function CardContact({icon, title, url, target = '_blank'}: CardContactProps) {
 
 export default function Footer() {
 	return (
-		<footer className='h-fit w-full text-primary bg-stone-200 dark:bg-zinc-800 py-4 px-2 '>
+		<footer className='h-fit w-full text-primary bg-stone-200 dark:bg-zinc-800 p-2 '>
 			<section className='flex flex-col gap-2 sm:flex-row items-center justify-evenly max-w-screen-2xl ml-auto mr-auto '>
 				<Logo className='w-auto h-20 sm:h-28 ' />
 				<div className='flex flex-col  items-center justify-evenly  '>
@@ -63,6 +63,16 @@ export default function Footer() {
 					</div>
 				</div>
 			</section>
+			<div className='flex justify-center items-center lg:py-2 '>
+				Build With <span className='text-red-500 text-2xl px-1'>&#9825;</span>
+				by&nbsp;
+				<Link
+					href='https://www.linkedin.com/in/john-santamaria-dev/'
+					className='underline underline-offset-2'
+				>
+					JohnS
+				</Link>
+			</div>
 		</footer>
 	);
 }
