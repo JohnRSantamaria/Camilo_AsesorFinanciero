@@ -27,8 +27,6 @@ function CardContact({icon, title, url, target = '_blank'}: CardContactProps) {
 }
 
 export default function Footer() {
-	const router = useRouter();
-
 	return (
 		<footer className='h-fit w-full text-primary bg-stone-200 dark:bg-zinc-800 py-4 px-2 '>
 			<section className='flex flex-col gap-2 sm:flex-row items-center justify-evenly max-w-screen-2xl ml-auto mr-auto '>

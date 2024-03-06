@@ -20,7 +20,7 @@ export default function Hero() {
 	const router = useRouter();
 	const handleClick = () => {
 		// confirm-appointment/
-		router.push('https://calendly.com/camilomeza');
+		router.push('https://calendly.com/camilomezafinanzas/asesoria_financiera');
 	};
 
 	return (
