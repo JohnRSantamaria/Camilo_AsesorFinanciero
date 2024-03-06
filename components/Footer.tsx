@@ -2,7 +2,7 @@ import {FaInstagram} from 'react-icons/fa';
 import {HiOutlineMail} from 'react-icons/hi';
 import {FaWhatsapp} from 'react-icons/fa';
 import {useRouter} from 'next/router';
-
+import {AiOutlinePhone} from 'react-icons/ai';
 import Logo from '../public/Image/svg/logo2';
 import Link from 'next/link';
 
@@ -57,10 +57,10 @@ export default function Footer() {
 							url='https://wa.me/message/TVZTX5F2HKCMK1 '
 						/>
 						<CardContact
-							icon={<FaWhatsapp className='w-7 h-auto' />}
+							icon={<AiOutlinePhone className='w-7 h-auto' />}
 							title='contactame'
-							url='#contactame'
-							target='_self'
+							url='#contacto'
+							target=''
 						/>
 					</div>
 				</div>
