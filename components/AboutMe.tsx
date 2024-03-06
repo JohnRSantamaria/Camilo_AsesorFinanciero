@@ -21,7 +21,7 @@ export default function AboutMe() {
 					<section className='flex flex-col gap-2 text-lg font-light h-full items-center justify-center '>
 						<h3 className='text-start w-full font-semibold'>Mis estudios </h3>
 						<span>
-							Soy profesional en economía con maestría en economía de las poíticas públicas,
+							Soy profesional en economía con maestría en economía de las políticas públicas,
 							estudios en derivados financieros, finanzas personales, creación de presupuesto,
 							control de gastos y finca raíz. Enfoqué mis estudios independientes en educación y
 							finanzas personales.
