@@ -1,28 +1,28 @@
-import React from 'react';
-
 import {FaInstagram} from 'react-icons/fa';
 import {HiOutlineMail} from 'react-icons/hi';
 import {FaWhatsapp} from 'react-icons/fa';
-import {IoPhonePortraitOutline} from 'react-icons/io5';
 import {useRouter} from 'next/router';
 
 import Logo from '../public/Image/svg/logo2';
+import Link from 'next/link';
 
 interface CardContactProps {
 	icon: React.ReactNode;
 	title: string;
-	handleClick?: () => void;
+	url: string;
+	target?: string;
 }
 
-function CardContact({icon, title, handleClick}: CardContactProps) {
+function CardContact({icon, title, url, target = '_blank'}: CardContactProps) {
 	return (
-		<section
-			onClick={handleClick}
+		<Link
+			href={url}
+			target={target}
 			className='flex gap-2 items-center justify-start hover:opacity-60 cursor-pointer active:scale-95 transition-transform duration-300'
 		>
 			{icon}
-			<span>{title}</span>
-		</section>
+			{title}
+		</Link>
 	);
 }
 
@@ -42,23 +42,25 @@ export default function Footer() {
 						<CardContact
 							icon={<HiOutlineMail className='w-7 h-auto' />}
 							title='Email'
+							url='mailto:asesorfinanciero@camilomeza.com'
 						/>
 						<CardContact
 							icon={<FaInstagram className='w-7 h-auto' />}
 							title='Instragram'
+							url='https://www.instagram.com/camilo_finanzas/'
 						/>
 					</div>
 					<div className='flex flex-col gap-4'>
 						<CardContact
 							icon={<FaWhatsapp className='w-7 h-auto' />}
 							title='Whatsapp'
+							url='https://wa.me/message/TVZTX5F2HKCMK1 '
 						/>
 						<CardContact
-							icon={<IoPhonePortraitOutline className='w-7 h-auto' />}
-							title='Contactame'
-							handleClick={() => {
-								router.push('#contacto');
-							}}
+							icon={<FaWhatsapp className='w-7 h-auto' />}
+							title='contactame'
+							url='#contactame'
+							target='_self'
 						/>
 					</div>
 				</div>

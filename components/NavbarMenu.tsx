@@ -38,7 +38,7 @@ export default function NavbarMenu() {
 
 				<nav className='flex items-center justify-center flex-wrap '>
 					<motion.a
-						href='#'
+						href='https://www.instagram.com/camilo_finanzas/'
 						target={'_blank'}
 						className='w-6 mx-3'
 						whileHover={{y: -2}}
@@ -48,7 +48,7 @@ export default function NavbarMenu() {
 					</motion.a>
 
 					<motion.a
-						href='#'
+						href='https://wa.me/message/TVZTX5F2HKCMK1 '
 						target={'_blank'}
 						className='w-6 mx-3'
 						whileHover={{y: -2}}
@@ -58,7 +58,7 @@ export default function NavbarMenu() {
 					</motion.a>
 
 					<motion.a
-						href='#'
+						href='mailto:asesorfinanciero@camilomeza.com'
 						target={'_blank'}
 						className='w-6 mx-3'
 						whileHover={{y: -2}}
