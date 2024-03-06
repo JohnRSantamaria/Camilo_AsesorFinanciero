@@ -58,7 +58,7 @@ export default function Footer() {
 						/>
 						<CardContact
 							icon={<AiOutlinePhone className='w-7 h-auto' />}
-							title='Contactamé'
+							title='Contáctame'
 							url='#contacto'
 							target=''
 						/>
