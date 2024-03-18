@@ -14,8 +14,10 @@ export default function Custom404() {
 				<title>404 - Error | Camilo Menza | Asesor Financiero </title>
 				<meta
 					name='description'
-					content='Página no encontrada'
+					content='Página no encontrada'					
 				/>
+				<meta name='robots' content='noindex,nofollow' />
+				<meta property="og:image" content="URL_de_tu_imagen" />
 			</Head>
 			<main className='flex flex-col items-center justify-center gap-4 p-4 text-primary bg-light dark:bg-darks w-full h-screen'>
 				<h1 className='text-4xl text-center '>404 - Page Not Found</h1>
