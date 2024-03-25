@@ -1,7 +1,5 @@
 import {Html, Head, Main, NextScript} from 'next/document';
 
-import img from '../public/favicon.ico';
-
 export default function Document() {
 	return (
 		<Html lang='es'>
@@ -16,7 +14,7 @@ export default function Document() {
 				/>
 				<meta
 					property='og:url'
-					content='https://camilomenza.com'
+					content='https://camilomeza.com'
 				/>
 				<meta
 					property='og:image'

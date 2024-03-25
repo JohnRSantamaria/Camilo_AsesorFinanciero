@@ -24,6 +24,10 @@ export default function Home() {
 					name='description'
 					content='SPA de asesoria financiera personal y empresarial en la ciudad de Bogotá'
 				/>
+				<meta
+					property='og:image'
+					content='/public/Image/financial_advisor.jpg'
+				/>
 			</Head>
 			<main
 				id='home'
