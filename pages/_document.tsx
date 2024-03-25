@@ -6,7 +6,7 @@ export default function Document() {
 			<Head>
 				<meta
 					property='og:title'
-					content='Camilo Menza | Asesor Financiero'
+					content='Camilo Meza | Asesor Financiero'
 				/>
 				<meta
 					property='og:description'
@@ -19,6 +19,10 @@ export default function Document() {
 				<meta
 					property='og:url'
 					content='https://camilomenza.com'
+				/>
+				<meta
+					property='og:image'
+					content='/public/favicon.ico'
 				/>
 			</Head>
 			<body>
