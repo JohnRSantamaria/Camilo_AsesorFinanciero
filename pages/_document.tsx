@@ -16,10 +16,10 @@ export default function Document() {
 					property='og:url'
 					content='https://camilomenza.com'
 				/>
-				<meta
+				{/* <meta
 					property='og:image'
 					content='/public/favicon.ico'
-				/>
+				/> */}
 			</Head>
 			<body>
 				<Main />
