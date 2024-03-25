@@ -17,12 +17,12 @@ export default function Document() {
 					content='https://camilomeza.com'
 				/>
 				<meta
-					property='og:image'
-					content='/public/favicon.ico'
-				/>
-				<meta
 					property='og:type'
 					content='website'
+				/>
+				<meta
+					property='og:image'
+					content='/seo/og_image.png'
 				/>
 
 				<meta
@@ -48,11 +48,6 @@ export default function Document() {
 				<meta
 					name='viewport'
 					content='width=device-width, initial-scale=1.0'
-				/>
-
-				<meta
-					name='image'
-					content='/public/favicon.ico'
 				/>
 			</Head>
 			<body>
