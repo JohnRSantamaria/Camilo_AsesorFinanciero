@@ -18,7 +18,7 @@ export default function Document() {
 				/>
 				<meta
 					property='og:image'
-					content='/public/Image/financial_education_2.webp'
+					content='/public/favicon.ico'
 				/>
 			</Head>
 			<body>
