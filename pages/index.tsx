@@ -26,7 +26,7 @@ export default function Home() {
 				/>
 				<meta
 					property='og:image'
-					content='/public/Image/financial_advisor.jpg'
+					content='/public/favicon.ico'
 				/>
 			</Head>
 			<main
