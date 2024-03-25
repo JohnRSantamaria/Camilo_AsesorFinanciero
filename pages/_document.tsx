@@ -13,16 +13,12 @@ export default function Document() {
 					content='Asesor Financiero'
 				/>
 				<meta
-					property='og:image'
-					content='/public/favicon.ico '
-				/>
-				<meta
 					property='og:url'
 					content='https://camilomenza.com'
 				/>
 				<meta
 					property='og:image'
-					content='/public/favicon.ico'
+					content='/public/Image/financial_education_2.webp'
 				/>
 			</Head>
 			<body>
