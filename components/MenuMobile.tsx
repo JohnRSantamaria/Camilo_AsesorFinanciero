@@ -36,7 +36,7 @@ export default function MenuMobile({isOpen, setIsOpen}: {isOpen: boolean; setIsO
 								onClick={() => setIsOpen(!isOpen)}
 								className='w-full text-center active:scale-95'
 							>
-								<Link href='#aboutMe'>Acerca de mi</Link>
+								<Link href='#aboutMe'>Acerca de mí</Link>
 							</li>
 							<li
 								onClick={() => setIsOpen(!isOpen)}

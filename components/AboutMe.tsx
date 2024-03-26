@@ -8,7 +8,7 @@ import Link from 'next/link';
 export default function AboutMe() {
 	return (
 		<SectionsLayout id='aboutMe'>
-			<AnimatedText text='Acerca de mi' />
+			<AnimatedText text='Acerca de mí' />
 			<div className='flex flex-col gap-4 md:flex-row text-primary dark:text-primaryDark '>
 				<div className=' md:h-[calc(100vh-7rem)] md:w-1/2 flex items-center justify-center '>
 					<Image

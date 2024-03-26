@@ -26,7 +26,7 @@ export default function NavbarMenu() {
 					/>
 					<CustomLink
 						href='#aboutMe'
-						title='Acerca de mi'
+						title='Acerca de mí'
 						className='mx-4'
 					/>
 					<CustomLink
