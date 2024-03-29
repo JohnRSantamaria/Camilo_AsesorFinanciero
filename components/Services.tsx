@@ -29,7 +29,7 @@ function CardServices({title, text, image, className}: CardServicesProps) {
 					className='w-auto h-40'
 				/>
 				<div className='flex flex-col gap-4 items-center xl:w-1/2'>
-					<p className='text-end max-w-96'>{text}</p>
+					<p className='text-start max-w-96'>{text}</p>
 				</div>
 			</div>
 		</section>
