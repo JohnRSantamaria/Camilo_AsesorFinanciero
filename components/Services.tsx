@@ -22,14 +22,14 @@ function CardServices({title, text, image, className}: CardServicesProps) {
 			className={`${className} flex flex-col gap-4 items-center bg-stone-200 dark:bg-zinc-800 rounded-md p-2 shadow-md overflow-hidden py-6 h-fit md:h-96 `}
 		>
 			<h2 className='font-semibold text-center text-xl sm:text-4xl md:text-3xl'>{title}</h2>
-			<div className='flex flex-col gap-4  md:flex-row items-center justify-evenly '>
+			<div className='flex flex-col gap-4  md:flex-row items-center justify-evenly lowercase '>
 				<Image
 					src={image}
 					alt='imagen de educación financiera'
 					className='w-auto h-40'
 				/>
 				<div className='flex flex-col gap-4 items-center xl:w-1/2'>
-					<p className='text-justify max-w-96'>{text}</p>
+					<p className='text-end max-w-96'>{text}</p>
 				</div>
 			</div>
 		</section>

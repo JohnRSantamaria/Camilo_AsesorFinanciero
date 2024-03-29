@@ -47,7 +47,7 @@ export default function AnimatedText({
 		<div className='w-full mx-auto flex items-center justify-center text-center overflow-hidden'>
 			<motion.h2
 				ref={ref}
-				className={`inline-block w-full text-primary font-bold capitalize text-4xl md:text-5xl lg:text-6xl py-4 ${className}`}
+				className={`inline-block w-full text-primary font-bold text-4xl md:text-5xl lg:text-6xl py-4 ${className}`}
 				variants={quote}
 				initial='initial'
 				animate={inView ? 'animate' : 'initial'}

@@ -44,14 +44,14 @@ export default function Footer() {
 						/>
 						<CardContact
 							icon={<FaInstagram className='w-7 h-auto' />}
-							title='Instragram'
+							title='Instagram'
 							url='https://www.instagram.com/camilo_finanzas/'
 						/>
 					</div>
 					<div className='flex flex-col gap-4'>
 						<CardContact
 							icon={<FaWhatsapp className='w-7 h-auto' />}
-							title='Whatsapp'
+							title='WhatsApp'
 							url='https://wa.me/message/TVZTX5F2HKCMK1 '
 						/>
 						<CardContact
