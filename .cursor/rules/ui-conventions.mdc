@@ -1,0 +1,23 @@
+---
+description: Convenciones de UI y marca al editar la landing
+globs: components/**/*.{tsx,ts,js},pages/**/*.{tsx,ts},styles/**/*.css,tailwind.config.js
+alwaysApply: false
+---
+
+# UI conventions — Camilo Meza AF
+
+When editing matching UI files, follow the project skills under `.cursor/skills/`:
+
+- `camilo-design-system` — palette, Raleway, dark mode, CTA gradient
+- `ui-components-patterns` — Layout, SectionsLayout, AnimatedText, Button, cards, nav
+- `framer-motion-standards` — useInView + stagger timings
+- `financial-landing-ux` — section jobs, hero budget, accessibility, conversion
+- `forms-and-feedback` — Formik/Yup + successAlert/errorAlert
+
+## Must follow
+
+1. Do not invent a new color palette; use Tailwind tokens from `tailwind.config.js`.
+2. Reuse existing layout/CTA/link components before creating new primitives.
+3. Mobile-first (`md:`, `lg:`) and always pair `dark:` styles for new surfaces.
+4. Keep Spanish copy for user-facing UI and a professional financial-advisory tone.
+5. Prefer one primary conversion CTA hierarchy; avoid clutter in the first viewport.
