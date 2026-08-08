@@ -1,7 +1,248 @@
+@import "tw-animate-css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-html{
-    scroll-behavior: smooth;
+html {
+  scroll-behavior: smooth;
+}
+
+@keyframes routeLoader {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(400%);
+  }
+}
+
+@layer base {
+  .theme {
+    --font-heading: var(--font-sans);
+    --font-sans: var(--font-sans);
+  }
+  :root {
+    /* Brand: light #f5f5f5, gold #c29739, cream surfaces */
+    --background: oklch(0.96 0 0);
+    --foreground: oklch(0.22 0 0);
+    --card: oklch(0.92 0.005 75);
+    --card-foreground: oklch(0.22 0 0);
+    --popover: oklch(0.96 0 0);
+    --popover-foreground: oklch(0.22 0 0);
+    --primary: oklch(0.72 0.12 85);
+    --primary-foreground: oklch(0.99 0 0);
+    --secondary: oklch(0.97 0.04 95);
+    --secondary-foreground: oklch(0.35 0.05 85);
+    --muted: oklch(0.94 0.01 75);
+    --muted-foreground: oklch(0.5 0.01 75);
+    --accent: oklch(0.94 0.05 95);
+    --accent-foreground: oklch(0.35 0.05 85);
+    --destructive: oklch(0.577 0.245 27.325);
+    --border: oklch(0.88 0.01 75);
+    --input: oklch(0.88 0.01 75);
+    --ring: oklch(0.72 0.12 85);
+    --chart-1: oklch(0.72 0.12 85);
+    --chart-2: oklch(0.82 0.14 90);
+    --chart-3: oklch(0.9 0.08 95);
+    --chart-4: oklch(0.55 0.08 85);
+    --chart-5: oklch(0.4 0.06 85);
+    --radius: 0.625rem;
+    --sidebar: oklch(0.96 0 0);
+    --sidebar-foreground: oklch(0.22 0 0);
+    --sidebar-primary: oklch(0.72 0.12 85);
+    --sidebar-primary-foreground: oklch(0.99 0 0);
+    --sidebar-accent: oklch(0.94 0.05 95);
+    --sidebar-accent-foreground: oklch(0.35 0.05 85);
+    --sidebar-border: oklch(0.88 0.01 75);
+    --sidebar-ring: oklch(0.72 0.12 85);
+  }
+  .dark {
+    /* Brand: dark #1b1b1b, gold accent #efdc97, zinc-800 cards */
+    --background: oklch(0.22 0 0);
+    --foreground: oklch(0.96 0 0);
+    --card: oklch(0.27 0.01 285);
+    --card-foreground: oklch(0.96 0 0);
+    --popover: oklch(0.27 0.01 285);
+    --popover-foreground: oklch(0.96 0 0);
+    --primary: oklch(0.9 0.08 95);
+    --primary-foreground: oklch(0.22 0 0);
+    --secondary: oklch(0.32 0.01 285);
+    --secondary-foreground: oklch(0.96 0 0);
+    --muted: oklch(0.32 0.01 285);
+    --muted-foreground: oklch(0.7 0.01 75);
+    --accent: oklch(0.32 0.02 85);
+    --accent-foreground: oklch(0.96 0 0);
+    --destructive: oklch(0.704 0.191 22.216);
+    --border: oklch(1 0 0 / 10%);
+    --input: oklch(1 0 0 / 15%);
+    --ring: oklch(0.9 0.08 95);
+    --chart-1: oklch(0.9 0.08 95);
+    --chart-2: oklch(0.82 0.14 90);
+    --chart-3: oklch(0.72 0.12 85);
+    --chart-4: oklch(0.55 0.08 85);
+    --chart-5: oklch(0.4 0.06 85);
+    --sidebar: oklch(0.27 0.01 285);
+    --sidebar-foreground: oklch(0.96 0 0);
+    --sidebar-primary: oklch(0.9 0.08 95);
+    --sidebar-primary-foreground: oklch(0.22 0 0);
+    --sidebar-accent: oklch(0.32 0.01 285);
+    --sidebar-accent-foreground: oklch(0.96 0 0);
+    --sidebar-border: oklch(1 0 0 / 10%);
+    --sidebar-ring: oklch(0.9 0.08 95);
+  }
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .landing-section-title {
+    @apply font-bold text-primary dark:text-primaryDark;
+  }
+  .landing-heading {
+    @apply font-semibold text-primary dark:text-primaryDark;
+  }
+  .landing-body {
+    @apply font-normal leading-relaxed text-foreground;
+  }
+}
+
+/*
+  Tamaños tipográficos de la landing — ÚNICO lugar para probar/cambiar.
+  (Fuera de @layer para que no los pisen utilities de Tailwind en componentes.)
+*/
+/*
+1rem : text-sm
+1.25rem : text-base
+1.5rem : text-lg
+1.75rem : text-xl
+2rem : text-2xl
+2.25rem : text-3xl
+2.5rem : text-4xl
+2.75rem : text-5xl
+3rem : text-6xl
+3.25rem : text-7xl
+3.5rem : text-8xl
+3.75rem : text-9xl
+*/
+
+:root {
+  --landing-title: 2.25rem; /* ~text-4xl */
+  --landing-title-md: 3rem; /* ~text-5xl */
+  --landing-title-lg: 3.75rem; /* ~text-6xl */
+  --landing-heading: 1.125rem; /* ~text-lg mobile */
+  --landing-heading-md: 1.5rem; /* ~text-2xl desktop */
+  --landing-body: 1rem; /* ~text-base mobile */
+  --landing-body-md: 1.125rem; /* ~text-lg desktop */
+  --landing-hero-lead: 1.25rem; /* Hero solo — mobile */
+  --landing-hero-lead-md: 1.5rem; /* ~text-2xl */
+  --landing-hero-lead-lg: 2.25rem; /* ~text-4xl */
+  --cta-from: #eabf36; /* primaryLight */
+  --cta-mid: #c29739; /* primary */
+  --cta-to: #8a6b1f; /* gold oscuro para contraste */
+}
+
+.landing-section-title {
+  font-size: var(--landing-title);
+}
+.landing-heading {
+  font-size: var(--landing-heading);
+}
+.landing-body {
+  font-size: var(--landing-body);
+}
+.landing-hero-lead {
+  @apply font-semibold text-primary dark:text-primaryDark leading-snug;
+  font-size: var(--landing-hero-lead);
+}
+
+@media (min-width: 768px) {
+  .landing-section-title {
+    font-size: var(--landing-title-md);
+  }
+  .landing-heading {
+    font-size: var(--landing-heading-md);
+  }
+  .landing-body {
+    font-size: var(--landing-body-md);
+  }
+  .landing-hero-lead {
+    font-size: var(--landing-hero-lead-md);
+  }
+}
+
+@media (min-width: 1024px) {
+  .landing-section-title {
+    font-size: var(--landing-title-lg);
+  }
+  .landing-hero-lead {
+    font-size: var(--landing-hero-lead-lg);
+  }
+}
+
+/* Blog post HTML (sanitized) */
+.post-content h2 {
+  @apply font-bold text-primary mt-8 mb-3;
+  font-size: var(--landing-title);
+}
+.post-content h3 {
+  @apply font-semibold text-primary mt-6 mb-2;
+  font-size: var(--landing-heading);
+}
+.post-content p {
+  @apply mb-4;
+}
+.post-content ul {
+  @apply list-disc pl-6 mb-4;
+}
+.post-content ol {
+  @apply list-decimal pl-6 mb-4;
+}
+.post-content li {
+  @apply mb-1;
+}
+.post-content a {
+  @apply text-primary underline underline-offset-2;
+}
+.post-content blockquote {
+  @apply border-l-4 border-primary pl-4 italic my-4 text-muted-foreground;
+}
+.post-content img {
+  @apply rounded-lg max-w-full h-auto my-4;
+}
+.post-content strong {
+  @apply font-semibold;
+}
+
+/* TipTap editor */
+.ProseMirror p.is-editor-empty:first-child::before {
+  color: #9ca3af;
+  content: attr(data-placeholder);
+  float: left;
+  height: 0;
+  pointer-events: none;
+}
+.ProseMirror h2 {
+  @apply text-2xl font-bold text-primary mt-4 mb-2;
+}
+.ProseMirror h3 {
+  @apply text-xl font-semibold text-primary mt-3 mb-2;
+}
+.ProseMirror ul {
+  @apply list-disc pl-6 my-2;
+}
+.ProseMirror ol {
+  @apply list-decimal pl-6 my-2;
+}
+.ProseMirror a {
+  @apply text-primary underline;
+}
+.ProseMirror p {
+  @apply mb-2;
+}
+.ProseMirror img {
+  @apply rounded-lg max-w-full h-auto my-3;
 }

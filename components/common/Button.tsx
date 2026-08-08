@@ -1,18 +1,30 @@
 import React from 'react';
+import {Button} from '@/components/ui/button';
+import {cn} from '@/lib/utils';
 
 interface ButtonProps {
 	children: React.ReactNode;
 	className?: string;
 	onClick?: () => void;
+	variant?: 'default' | 'cta';
+	type?: 'button' | 'submit' | 'reset';
 }
 
-export default function Button({children, className, onClick}: ButtonProps) {
+export default function CommonButton({
+	children,
+	className,
+	onClick,
+	variant = 'default',
+	type = 'button',
+}: ButtonProps) {
 	return (
-		<button
+		<Button
+			type={type}
+			variant={variant}
 			onClick={onClick}
-			className={`px-2 py-1 rounded-lg  bg-primary text-white hover:shadow active:scale-95 transition-all duration-200 ${className}`}
+			className={cn(className)}
 		>
 			{children}
-		</button>
+		</Button>
 	);
 }
