@@ -1,6 +1,6 @@
 import {z} from 'zod';
 import {isYouTubeUrl} from '@/lib/posts/youtube';
-import {isEmptyEditorHtml} from '@/lib/posts/sanitize';
+import {isEmptyEditorHtml} from '@/lib/posts/editorHtml';
 
 export const postFormSchema = z.object({
 	title: z.string().min(1, 'El título es requerido').max(200, 'Título muy largo'),
