@@ -6,6 +6,10 @@ export default function Document() {
 		<Html lang='es'>
 			<Head>
 				<meta
+					name='google-site-verification'
+					content='cXuK9zGlaYsH7i8wVnMIkyJpofaU_9IF_jXwrKxZzPE'
+				/>
+				<meta
 					property='og:site_name'
 					content={SITE_NAME}
 				/>
