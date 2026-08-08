@@ -23,7 +23,7 @@ import {Button} from '@/components/ui/button';
 import {Switch} from '@/components/ui/switch';
 import CoverImageField from '@/components/admin/CoverImageField';
 import RichTextEditor from '@/components/admin/RichTextEditor';
-import {isEmptyEditorHtml} from '@/lib/posts/sanitize';
+import {isEmptyEditorHtml} from '@/lib/posts/editorHtml';
 import {nextSortOrder} from '@/lib/posts/reorder';
 import {fromDatetimeLocalValue, toDatetimeLocalValue} from '@/lib/posts/visibility';
 
