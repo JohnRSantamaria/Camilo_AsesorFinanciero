@@ -7,6 +7,15 @@ html {
 	scroll-behavior: smooth;
 }
 
+@keyframes routeLoader {
+	0% {
+		transform: translateX(-100%);
+	}
+	100% {
+		transform: translateX(400%);
+	}
+}
+
 @layer base {
 	.theme {
 		--font-heading: var(--font-sans);

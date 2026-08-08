@@ -219,9 +219,13 @@ export default function PostForm({userId, initialPost}: PostFormProps) {
 								<Textarea
 									{...field}
 									rows={3}
+									maxLength={500}
 									className='bg-light dark:bg-dark'
 								/>
 							</FormControl>
+							<FormDescription>
+								{(field.value ?? '').length}/500
+							</FormDescription>
 							<FormMessage />
 						</FormItem>
 					)}
@@ -347,7 +351,9 @@ export default function PostForm({userId, initialPost}: PostFormProps) {
 						<p className='text-xs text-emerald-700 dark:text-emerald-400 truncate mt-0.5'>
 							camilomeza.com/blog/{slugValue || 'slug'}
 						</p>
-						<p className='text-sm text-muted-foreground mt-1 line-clamp-2'>{seoDescription}</p>
+						<p className='text-sm text-muted-foreground mt-1 line-clamp-2 whitespace-pre-line'>
+							{seoDescription}
+						</p>
 					</div>
 				</div>
 
