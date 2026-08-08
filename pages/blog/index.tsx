@@ -1,4 +1,3 @@
-import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
 import type { GetServerSideProps } from "next";
@@ -21,6 +20,7 @@ import {
 import { Badge } from "@/components/ui/badge";
 import AnimatedText from "@/components/framerMotion/AnimatedText";
 import BlogEmptyState from "@/components/blog/BlogEmptyState";
+import SeoHead from "@/components/seo/SeoHead";
 
 const raleway = Raleway({ subsets: ["latin"] });
 
@@ -40,13 +40,11 @@ function formatDate(value: string | null) {
 export default function BlogIndexPage({ posts }: BlogIndexProps) {
   return (
     <>
-      <Head>
-        <title>Blog — Camilo Meza Asesoría Financiera</title>
-        <meta
-          name="description"
-          content="Artículos de educación y mentalidad financiera"
-        />
-      </Head>
+      <SeoHead
+        title="Blog"
+        description="Artículos de educación y mentalidad financiera para personas, parejas y hogares."
+        path="/blog"
+      />
       <main
         className={`flex min-h-screen flex-col items-center justify-between bg-light dark:bg-dark ${raleway.className}  ml-auto mr-auto overflow-hidden`}
       >

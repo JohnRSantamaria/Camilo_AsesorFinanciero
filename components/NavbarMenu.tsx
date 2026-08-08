@@ -13,7 +13,7 @@ export default function NavbarMenu() {
   const [mode, setMode] = useThemeSwitcher();
 
   return (
-    <header className="hidden sm:flex  items-center justify-between w-full py-8 font-medium dark:text-primaryDark z-10 px-4 2xl:px-0">
+    <header className="hidden sm:flex shrink-0 items-center justify-between w-full py-8 font-medium text-primary dark:text-primaryDark z-10 px-4 2xl:px-0">
       <div className="w-full flex justify-between items-center ">
         <nav className="flex items-center justify-center">
           <CustomLink href="/" title="Inicio" className="mr-4" />

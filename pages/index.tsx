@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Head from "next/head";
 import { Raleway } from "next/font/google";
 
 import { IoArrowUpCircleOutline } from "react-icons/io5";
@@ -11,28 +10,29 @@ import AboutMe from "@/components/AboutMe";
 import Services from "@/components/Services";
 import NavbarMenu from "@/components/NavbarMenu";
 import MobileNabBarMenu from "@/components/MobileNabBarMenu";
+import SeoHead from "@/components/seo/SeoHead";
+import { DEFAULT_DESCRIPTION } from "@/lib/seo";
 
 const raleway = Raleway({ subsets: ["latin"] });
 
 export default function Home() {
   return (
     <>
-      <Head>
-        <title>Camilo Meza Asesoria Financiera</title>
-        <meta
-          name="description"
-          content="SPA de asesoria financiera personal y empresarial en la ciudad de Bogotá"
-        />
-        <meta property="og:image" content="/public/favicon.ico" />
-      </Head>
+      <SeoHead
+        title="Camilo Meza | Asesor Financiero en Bogotá"
+        description={DEFAULT_DESCRIPTION}
+        path="/"
+      />
       <main
         id="home"
         className={`flex min-h-screen flex-col items-center justify-between bg-light dark:bg-dark ${raleway.className}  ml-auto mr-auto overflow-hidden`}
       >
         <Layout className="relative flex flex-col gap-2 pb-4">
-          <NavbarMenu />
-          <MobileNabBarMenu />
-          <Hero />
+          <div className="flex flex-col h-svh w-full shrink-0">
+            <NavbarMenu />
+            <MobileNabBarMenu />
+            <Hero />
+          </div>
           <Services />
           <AboutMe />
           <div className="fixed bottom-8 right-4 cursor-pointer">

@@ -11,6 +11,20 @@ import {Card, CardContent, CardDescription, CardHeader, CardTitle} from '@/compo
 
 const raleway = Raleway({subsets: ['latin']});
 
+function authErrorMessage(message: string): string {
+	const normalized = message.trim().toLowerCase();
+	if (normalized === 'invalid login credentials') {
+		return 'Correo o contraseña incorrectos';
+	}
+	if (normalized.includes('email not confirmed')) {
+		return 'Debes confirmar tu correo antes de iniciar sesión';
+	}
+	if (normalized.includes('too many requests')) {
+		return 'Demasiados intentos. Espera un momento e inténtalo de nuevo';
+	}
+	return 'No se pudo iniciar sesión. Revisa tus datos e inténtalo de nuevo';
+}
+
 async function userIsAdmin(userId: string) {
 	const supabase = createClient();
 	const {data, error} = await supabase
@@ -63,7 +77,9 @@ export default function AdminLoginPage() {
 			});
 
 			if (error) {
-				toast.error('Error al iniciar sesión', {description: error.message});
+				toast.error('Error al iniciar sesión', {
+					description: authErrorMessage(error.message),
+				});
 				return;
 			}
 
@@ -82,7 +98,10 @@ export default function AdminLoginPage() {
 
 			await router.push('/admin');
 		} catch (error) {
-			const message = error instanceof Error ? error.message : 'Error inesperado';
+			const message =
+				error instanceof Error
+					? authErrorMessage(error.message)
+					: 'Ocurrió un error inesperado. Inténtalo de nuevo';
 			toast.error('Error al iniciar sesión', {description: message});
 		} finally {
 			setIsSubmitting(false);
@@ -93,6 +112,7 @@ export default function AdminLoginPage() {
 		<>
 			<Head>
 				<title>Admin — Iniciar sesión</title>
+				<meta name="robots" content="noindex, nofollow" />
 			</Head>
 			<main
 				className={`${raleway.className} min-h-screen flex items-center justify-center bg-light dark:bg-dark px-4`}

@@ -5,7 +5,7 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
-	"inline-flex shrink-0 items-center justify-center rounded-lg border border-transparent text-sm font-medium whitespace-nowrap transition-all outline-none select-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 active:scale-95",
+	"inline-flex shrink-0 items-center justify-center gap-2 rounded-lg border border-transparent text-sm font-medium whitespace-nowrap outline-none select-none transition-[transform,box-shadow,filter] duration-200 ease-out focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
 	{
 		variants: {
 			variant: {
@@ -16,12 +16,13 @@ const buttonVariants = cva(
 				ghost: "hover:bg-muted hover:text-foreground",
 				destructive: "bg-red-500 text-white hover:bg-red-600",
 				link: "text-primary underline-offset-4 hover:underline",
-				cta: "bg-gradient-to-t from-primary via-primaryLight to-primaryDark text-white uppercase font-semibold tracking-widest hover:shadow-md hover:scale-105 active:scale-95 transition-transform duration-300",
+				cta: "bg-gradient-to-b from-[var(--cta-from)] via-[var(--cta-mid)] to-[var(--cta-to)] text-white font-semibold tracking-wide normal-case shadow-md shadow-primary/25 hover:shadow-lg hover:shadow-primary/35 hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] dark:shadow-primary/15",
 			},
 			size: {
 				default: "h-9 px-4 py-2",
 				sm: "h-8 rounded-md px-3 text-xs",
 				lg: "h-11 rounded-lg px-6",
+				cta: "h-auto min-h-12 px-6 py-3 text-base md:text-lg rounded-xl",
 				icon: "h-9 w-9",
 			},
 		},
@@ -44,7 +45,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 		return (
 			<Comp
 				data-slot="button"
-				className={cn(buttonVariants({ variant, size, className }))}
+				className={cn(buttonVariants({ variant, size }), className)}
 				ref={ref}
 				{...props}
 			/>

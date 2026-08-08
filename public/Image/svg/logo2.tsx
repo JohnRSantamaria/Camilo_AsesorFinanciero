@@ -8,14 +8,12 @@ interface svgPropsInterface {
 const Logo: React.FC<svgPropsInterface> = ({className}) => {
 	return (
 		<svg
-			version='1.0'
-			xmlns='http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'
-			width='2035.000000pt'
-			height='2348.000000pt'
-			viewBox='0 0 2035.000000 2348.000000'
-			preserveAspectRatio='xMidYMid meet'
-			className={`${className} bg-transparent`}
-			zoomAndPan='magnify'
+			xmlns="http://www.w3.org/2000/svg"
+			viewBox="0 0 2035 2348"
+			preserveAspectRatio="xMidYMid meet"
+			className={`${className ?? ""} shrink-0 bg-transparent`}
+			aria-hidden="true"
+			focusable="false"
 		>
 			<g
 				transform='translate(0.000000,2348.000000) scale(0.100000,-0.100000)'

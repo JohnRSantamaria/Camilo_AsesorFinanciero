@@ -10,8 +10,11 @@ export default function XButton() {
 	return (
 		<>
 			<button
-				className=' flex-col justify-center items-center flex'
+				type="button"
+				className="flex flex-col items-center justify-center rounded-lg p-2 transition-colors hover:bg-primary/10 dark:hover:bg-primaryDark/10"
 				onClick={handleClick}
+				aria-label={isOpen ? "Cerrar menú" : "Abrir menú"}
+				aria-expanded={isOpen}
 			>
 				<span
 					className={`bg-primary dark:bg-primaryLight block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm  ${

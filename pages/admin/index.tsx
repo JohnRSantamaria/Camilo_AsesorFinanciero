@@ -178,8 +178,7 @@ export const getServerSideProps: GetServerSideProps<DashboardProps> = async (
   const drafts = posts.filter((post) => !post.published);
   const livePublished = posts.filter(
     (post) => post.published && !isPostScheduled(post, now)
-  );
-  console.log(result);
+  );  
   return {
     props: {
       email: result.session.email,

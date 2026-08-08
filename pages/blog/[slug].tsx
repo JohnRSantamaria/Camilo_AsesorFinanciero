@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import Head from "next/head";
 import type { GetServerSideProps } from "next";
 import { Raleway } from "next/font/google";
 import Footer from "@/components/Footer";
@@ -7,6 +6,7 @@ import NavbarMenu from "@/components/NavbarMenu";
 import MobileNabBarMenu from "@/components/MobileNabBarMenu";
 import Layout from "@/components/Layout";
 import PostArticle from "@/components/blog/PostArticle";
+import SeoHead from "@/components/seo/SeoHead";
 import { createPublicClient } from "@/lib/supabase/public";
 import { trackEvent } from "@/lib/analytics";
 import { isPostLive } from "@/lib/posts/visibility";
@@ -22,7 +22,8 @@ export default function BlogPostPage({ post }: BlogPostPageProps) {
   const pageTitle = post.meta_title?.trim() || post.title;
   const pageDescription =
     post.meta_description?.trim() || post.excerpt?.trim() || post.title;
-  const ogImage = post.cover_image || "/seo/og_image.png";
+  const ogImage = post.cover_image || undefined;
+  const publishedTime = post.published_at || post.created_at;
 
   useEffect(() => {
     trackEvent({
@@ -38,14 +39,14 @@ export default function BlogPostPage({ post }: BlogPostPageProps) {
 
   return (
     <>
-      <Head>
-        <title>{`${pageTitle} — Camilo Meza`}</title>
-        <meta name="description" content={pageDescription} />
-        <meta property="og:title" content={pageTitle} />
-        <meta property="og:description" content={pageDescription} />
-        <meta property="og:type" content="article" />
-        <meta property="og:image" content={ogImage} />
-      </Head>
+      <SeoHead
+        title={pageTitle}
+        description={pageDescription}
+        path={`/blog/${post.slug}`}
+        image={ogImage}
+        type="article"
+        publishedTime={publishedTime}
+      />
       <main
         className={`flex min-h-screen flex-col items-center justify-between bg-light dark:bg-dark ${raleway.className}  ml-auto mr-auto overflow-hidden`}
       >

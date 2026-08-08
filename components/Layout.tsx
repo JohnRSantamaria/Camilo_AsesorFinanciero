@@ -8,7 +8,7 @@ interface LayoutProps {
 export default function Layout({children, className}: LayoutProps) {
 	return (
 		<section
-			className={`max-w-screen-2xl w-full min-h-screen text-primary dark:text-primaryDark ${className}`}
+			className={`max-w-screen-2xl w-full min-h-screen text-foreground ${className}`}
 		>
 			{children}
 		</section>

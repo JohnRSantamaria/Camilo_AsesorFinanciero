@@ -36,6 +36,7 @@ export default function AdminLayout({
     <>
       <Head>
         <title>{title}</title>
+        <meta name="robots" content="noindex, nofollow" />
       </Head>
       <div
         className={`${raleway.className} min-h-screen bg-light dark:bg-dark`}
