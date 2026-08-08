@@ -6,6 +6,8 @@ import {MoonIcon} from './icons/moonIcon';
 import {FaInstagram} from 'react-icons/fa';
 import {HiOutlineMail} from 'react-icons/hi';
 import {FaWhatsapp} from 'react-icons/fa';
+import {trackEvent} from '@/lib/analytics';
+import {homeSectionHref} from '@/lib/navigation';
 
 export default function NavbarMenu() {
 	const [mode, setMode] = useThemeSwitcher();
@@ -20,19 +22,26 @@ export default function NavbarMenu() {
 						className='mr-4'
 					/>
 					<CustomLink
-						href='#servicios'
+						href={homeSectionHref('servicios')}
 						title='Servicios'
 						className='mx-4'
 					/>
 					<CustomLink
-						href='#aboutMe'
+						href={homeSectionHref('aboutMe')}
 						title='Acerca de mí'
 						className='mx-4'
 					/>
 					<CustomLink
-						href='#contacto'
-						title='Contacto'
+						href='/blog'
+						title='Blog'
 						className='mx-4'
+						onClick={() =>
+							trackEvent({
+								action: 'blog_nav_click',
+								category: 'blog',
+								label: 'navbar',
+							})
+						}
 					/>
 				</nav>
 
@@ -43,6 +52,13 @@ export default function NavbarMenu() {
 						className='w-6 mx-3'
 						whileHover={{y: -2}}
 						whileTap={{scale: 0.9}}
+						onClick={() =>
+							trackEvent({
+								action: 'contact_instagram',
+								category: 'contact',
+								label: 'navbar',
+							})
+						}
 					>
 						<FaInstagram className='w-7 h-auto text-primary dark:text-primaryDark' />
 					</motion.a>
@@ -53,6 +69,13 @@ export default function NavbarMenu() {
 						className='w-6 mx-3'
 						whileHover={{y: -2}}
 						whileTap={{scale: 0.9}}
+						onClick={() =>
+							trackEvent({
+								action: 'contact_whatsapp',
+								category: 'contact',
+								label: 'navbar',
+							})
+						}
 					>
 						<FaWhatsapp className='w-7 h-auto text-primary dark:text-primaryDark' />
 					</motion.a>
@@ -63,6 +86,13 @@ export default function NavbarMenu() {
 						className='w-6 mx-3'
 						whileHover={{y: -2}}
 						whileTap={{scale: 0.9}}
+						onClick={() =>
+							trackEvent({
+								action: 'contact_email',
+								category: 'contact',
+								label: 'navbar',
+							})
+						}
 					>
 						<HiOutlineMail className='w-8 h-auto text-primary dark:text-primaryDark' />
 					</motion.a>

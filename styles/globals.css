@@ -1,7 +1,153 @@
+@import "tw-animate-css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-html{
-    scroll-behavior: smooth;
+html {
+	scroll-behavior: smooth;
 }
+
+@layer base {
+	.theme {
+		--font-heading: var(--font-sans);
+		--font-sans: var(--font-sans);
+	}
+	:root {
+		/* Brand: light #f5f5f5, gold #c29739, cream surfaces */
+		--background: oklch(0.96 0 0);
+		--foreground: oklch(0.22 0 0);
+		--card: oklch(0.92 0.005 75);
+		--card-foreground: oklch(0.22 0 0);
+		--popover: oklch(0.96 0 0);
+		--popover-foreground: oklch(0.22 0 0);
+		--primary: oklch(0.72 0.12 85);
+		--primary-foreground: oklch(0.99 0 0);
+		--secondary: oklch(0.97 0.04 95);
+		--secondary-foreground: oklch(0.35 0.05 85);
+		--muted: oklch(0.94 0.01 75);
+		--muted-foreground: oklch(0.5 0.01 75);
+		--accent: oklch(0.94 0.05 95);
+		--accent-foreground: oklch(0.35 0.05 85);
+		--destructive: oklch(0.577 0.245 27.325);
+		--border: oklch(0.88 0.01 75);
+		--input: oklch(0.88 0.01 75);
+		--ring: oklch(0.72 0.12 85);
+		--chart-1: oklch(0.72 0.12 85);
+		--chart-2: oklch(0.82 0.14 90);
+		--chart-3: oklch(0.9 0.08 95);
+		--chart-4: oklch(0.55 0.08 85);
+		--chart-5: oklch(0.4 0.06 85);
+		--radius: 0.625rem;
+		--sidebar: oklch(0.96 0 0);
+		--sidebar-foreground: oklch(0.22 0 0);
+		--sidebar-primary: oklch(0.72 0.12 85);
+		--sidebar-primary-foreground: oklch(0.99 0 0);
+		--sidebar-accent: oklch(0.94 0.05 95);
+		--sidebar-accent-foreground: oklch(0.35 0.05 85);
+		--sidebar-border: oklch(0.88 0.01 75);
+		--sidebar-ring: oklch(0.72 0.12 85);
+	}
+	.dark {
+		/* Brand: dark #1b1b1b, gold accent #efdc97, zinc-800 cards */
+		--background: oklch(0.22 0 0);
+		--foreground: oklch(0.96 0 0);
+		--card: oklch(0.27 0.01 285);
+		--card-foreground: oklch(0.96 0 0);
+		--popover: oklch(0.27 0.01 285);
+		--popover-foreground: oklch(0.96 0 0);
+		--primary: oklch(0.9 0.08 95);
+		--primary-foreground: oklch(0.22 0 0);
+		--secondary: oklch(0.32 0.01 285);
+		--secondary-foreground: oklch(0.96 0 0);
+		--muted: oklch(0.32 0.01 285);
+		--muted-foreground: oklch(0.7 0.01 75);
+		--accent: oklch(0.32 0.02 85);
+		--accent-foreground: oklch(0.96 0 0);
+		--destructive: oklch(0.704 0.191 22.216);
+		--border: oklch(1 0 0 / 10%);
+		--input: oklch(1 0 0 / 15%);
+		--ring: oklch(0.9 0.08 95);
+		--chart-1: oklch(0.9 0.08 95);
+		--chart-2: oklch(0.82 0.14 90);
+		--chart-3: oklch(0.72 0.12 85);
+		--chart-4: oklch(0.55 0.08 85);
+		--chart-5: oklch(0.4 0.06 85);
+		--sidebar: oklch(0.27 0.01 285);
+		--sidebar-foreground: oklch(0.96 0 0);
+		--sidebar-primary: oklch(0.9 0.08 95);
+		--sidebar-primary-foreground: oklch(0.22 0 0);
+		--sidebar-accent: oklch(0.32 0.01 285);
+		--sidebar-accent-foreground: oklch(0.96 0 0);
+		--sidebar-border: oklch(1 0 0 / 10%);
+		--sidebar-ring: oklch(0.9 0.08 95);
+	}
+	* {
+		@apply border-border;
+	}
+	body {
+		@apply bg-background text-foreground;
+	}
+}
+
+/* Blog post HTML (sanitized) */
+.post-content h2 {
+	@apply text-2xl font-bold text-primary mt-8 mb-3;
+}
+.post-content h3 {
+	@apply text-xl font-semibold text-primary mt-6 mb-2;
+}
+.post-content p {
+	@apply mb-4;
+}
+.post-content ul {
+	@apply list-disc pl-6 mb-4;
+}
+.post-content ol {
+	@apply list-decimal pl-6 mb-4;
+}
+.post-content li {
+	@apply mb-1;
+}
+.post-content a {
+	@apply text-primary underline underline-offset-2;
+}
+.post-content blockquote {
+	@apply border-l-4 border-primary pl-4 italic my-4 text-muted-foreground;
+}
+.post-content img {
+	@apply rounded-lg max-w-full h-auto my-4;
+}
+.post-content strong {
+	@apply font-semibold;
+}
+
+/* TipTap editor */
+.ProseMirror p.is-editor-empty:first-child::before {
+	color: #9ca3af;
+	content: attr(data-placeholder);
+	float: left;
+	height: 0;
+	pointer-events: none;
+}
+.ProseMirror h2 {
+	@apply text-2xl font-bold text-primary mt-4 mb-2;
+}
+.ProseMirror h3 {
+	@apply text-xl font-semibold text-primary mt-3 mb-2;
+}
+.ProseMirror ul {
+	@apply list-disc pl-6 my-2;
+}
+.ProseMirror ol {
+	@apply list-decimal pl-6 my-2;
+}
+.ProseMirror a {
+	@apply text-primary underline;
+}
+.ProseMirror p {
+	@apply mb-2;
+}
+.ProseMirror img {
+	@apply rounded-lg max-w-full h-auto my-3;
+}
+

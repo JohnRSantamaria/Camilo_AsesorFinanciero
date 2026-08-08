@@ -9,7 +9,6 @@ import Footer from '@/components/Footer';
 import Layout from '@/components/Layout';
 import AboutMe from '@/components/AboutMe';
 import Services from '@/components/Services';
-import ContactMe from '@/components/contactMe';
 import NavbarMenu from '@/components/NavbarMenu';
 import MobileNabBarMenu from '@/components/MobileNabBarMenu';
 
@@ -39,7 +38,6 @@ export default function Home() {
 					<Hero />
 					<Services />
 					<AboutMe />
-					<ContactMe />
 					<div className='fixed bottom-8 right-4 cursor-pointer'>
 						<Link
 							rel='stylesheet'

@@ -1,20 +1,27 @@
 import Link from 'next/link';
 import {useRouter} from 'next/router';
+import {homeSectionHref} from '@/lib/navigation';
 
 interface CustomLinkProps {
 	href: string;
 	title: string;
 	className?: string;
+	onClick?: () => void;
 }
 
-export function CustomLink({href, title, className = ''}: CustomLinkProps) {
+export function CustomLink({href, title, className = '', onClick}: CustomLinkProps) {
 	const router = useRouter();
-	const isActive = router.pathname === href.split('#')[0]; // Solo considera la parte de la URL antes del fragmento
+	const resolvedHref = href.startsWith('#') ? homeSectionHref(href) : href;
+	const isHashLink = resolvedHref.includes('#');
+	const pathPart = resolvedHref.split('#')[0] || '/';
+	const isActive = !isHashLink && router.pathname === pathPart;
+
 	return (
 		<Link
-			href={href}
+			href={resolvedHref}
 			className={`${className} relative group text-primary dark:text-primaryDark`}
-			scroll={false}
+			scroll={isHashLink}
+			onClick={onClick}
 		>
 			{title}
 

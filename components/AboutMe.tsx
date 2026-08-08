@@ -4,6 +4,7 @@ import Image from 'next/image';
 import me from '@/public/Image/financial_advisor.jpg';
 import SectionsLayout from './SectionsLayout';
 import Link from 'next/link';
+import {Button} from '@/components/ui/button';
 
 export default function AboutMe() {
 	return (
@@ -34,14 +35,19 @@ export default function AboutMe() {
 						</span>
 						<div className='flex flex-col gap-2 w-full '>
 							<h3 className='text-start w-full font-semibold mt-8'>Descarga mi hoja de vida</h3>
-							<Link
-								href='/cv/HV_Camilo_Meza.pdf'
-								target={'_blank'}
-								className='w-full px-4 py-2 rounded bg-gradient-to-t from-primary via-primaryLight to-primaryDark text-white uppercase active:scale-95 transition-transform duration-300 hover:shadow-md hover:scale-105 md:w-96 md:py-4 font-semibold tracking-widest max-w-xs '
-								download={true}
+							<Button
+								variant='cta'
+								asChild
+								className='w-full md:w-96 md:py-4 max-w-xs h-auto py-2'
 							>
-								Click para descargar
-							</Link>
+								<Link
+									href='/cv/HV_Camilo_Meza.pdf'
+									target={'_blank'}
+									download={true}
+								>
+									Click para descargar
+								</Link>
+							</Button>
 						</div>
 					</section>
 				</div>

@@ -4,6 +4,8 @@ import {SunIcon} from './icons/sunIcon';
 import {motion, AnimatePresence} from 'framer-motion';
 import Link from 'next/link';
 import useThemeSwitcher from '@/hooks/useThemeSwitcher';
+import {trackEvent} from '@/lib/analytics';
+import {homeSectionHref} from '@/lib/navigation';
 
 export default function MenuMobile({isOpen, setIsOpen}: {isOpen: boolean; setIsOpen: Function}) {
 	const [mode, setMode] = useThemeSwitcher();
@@ -30,19 +32,30 @@ export default function MenuMobile({isOpen, setIsOpen}: {isOpen: boolean; setIsO
 								onClick={() => setIsOpen(!isOpen)}
 								className='w-full text-center active:scale-95'
 							>
-								<Link href='#servicios'>Servicios</Link>
+								<Link href={homeSectionHref('servicios')}>Servicios</Link>
 							</li>
 							<li
 								onClick={() => setIsOpen(!isOpen)}
 								className='w-full text-center active:scale-95'
 							>
-								<Link href='#aboutMe'>Acerca de mí</Link>
+								<Link href={homeSectionHref('aboutMe')}>Acerca de mí</Link>
 							</li>
 							<li
 								onClick={() => setIsOpen(!isOpen)}
 								className='w-full text-center active:scale-95'
 							>
-								<Link href='#contacto'>Contacto</Link>
+								<Link
+									href='/blog'
+									onClick={() =>
+										trackEvent({
+											action: 'blog_nav_click',
+											category: 'blog',
+											label: 'mobile_menu',
+										})
+									}
+								>
+									Blog
+								</Link>
 							</li>
 							<li>
 								<button

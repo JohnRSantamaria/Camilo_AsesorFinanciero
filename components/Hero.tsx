@@ -4,6 +4,8 @@ import heroImage from '../public/Image/hero_image.png';
 import SectionsLayout from './SectionsLayout';
 import AnimatedText from './framerMotion/AnimatedText';
 import {useRouter} from 'next/router';
+import {Button} from '@/components/ui/button';
+import {trackEvent} from '@/lib/analytics';
 
 function PrincipalImage({className}: {className?: string}) {
 	return (
@@ -19,7 +21,11 @@ function PrincipalImage({className}: {className?: string}) {
 export default function Hero() {
 	const router = useRouter();
 	const handleClick = () => {
-		// confirm-appointment/
+		trackEvent({
+			action: 'cta_agenda',
+			category: 'conversion',
+			label: 'hero',
+		});
 		router.push('https://mpago.li/1UDp3NJ');
 	};
 
@@ -41,12 +47,13 @@ export default function Hero() {
 					Tus finanzas personales lo agradecerán
 				</p>
 				<div className='px-4 w-full flex items-center justify-center '>
-					<button
+					<Button
+						variant='cta'
 						onClick={handleClick}
-						className='w-full px-4  py-2 rounded bg-gradient-to-t from-primary via-primaryLight to-primaryDark text-white uppercase active:scale-95 transition-transform duration-300 hover:shadow-md hover:scale-105 md:w-96 md:py-4 font-semibold tracking-widest max-w-xs '
+						className='w-full md:w-96 md:py-4 max-w-xs h-auto py-2'
 					>
 						Agenda una asesoría financiera
-					</button>
+					</Button>
 				</div>
 			</div>
 		</SectionsLayout>

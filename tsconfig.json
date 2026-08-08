@@ -24,6 +24,7 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx",
+    "**/*.d.ts",
     "components/icons/sunIcon.js"
   ],
   "exclude": ["node_modules"]

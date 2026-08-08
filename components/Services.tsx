@@ -8,6 +8,7 @@ import budget from '@/public/Image/budget.webp';
 import portfolio from '@/public/Image/portfolio.webp';
 
 import Image, {StaticImageData} from 'next/image';
+import {Card, CardContent, CardHeader, CardTitle} from '@/components/ui/card';
 
 interface CardServicesProps {
 	title: string;
@@ -18,11 +19,15 @@ interface CardServicesProps {
 
 function CardServices({title, text, image, className}: CardServicesProps) {
 	return (
-		<section
-			className={`${className} flex flex-col gap-4 items-center bg-stone-200 dark:bg-zinc-800 rounded-md p-2 shadow-md overflow-hidden py-6 h-fit md:h-96 `}
+		<Card
+			className={`${className} items-center bg-stone-200 dark:bg-zinc-800 rounded-md p-2 shadow-md overflow-hidden py-6 h-fit md:h-96 ring-0 border-0`}
 		>
-			<h2 className='font-semibold text-center text-xl sm:text-4xl md:text-3xl'>{title}</h2>
-			<div className='flex flex-col gap-4  md:flex-row items-center justify-evenly lowercase '>
+			<CardHeader className='w-full p-0'>
+				<CardTitle className='font-semibold text-center text-xl sm:text-4xl md:text-3xl'>
+					{title}
+				</CardTitle>
+			</CardHeader>
+			<CardContent className='flex flex-col gap-4 md:flex-row items-center justify-evenly lowercase w-full p-0'>
 				<Image
 					src={image}
 					alt='imagen de educación financiera'
@@ -31,8 +36,8 @@ function CardServices({title, text, image, className}: CardServicesProps) {
 				<div className='flex flex-col gap-4 items-center xl:w-1/2'>
 					<p className='text-start max-w-96'>{text}</p>
 				</div>
-			</div>
-		</section>
+			</CardContent>
+		</Card>
 	);
 }
 
