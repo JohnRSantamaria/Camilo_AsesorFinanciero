@@ -73,6 +73,12 @@ export default function AdminDashboardPage({
               <Link href="/admin/posts">Administrar posts</Link>
             </Button>
             <Button asChild variant="outline">
+              <Link href="/admin/products/new">Nuevo producto</Link>
+            </Button>
+            <Button asChild variant="outline">
+              <Link href="/admin/products">Administrar productos</Link>
+            </Button>
+            <Button asChild variant="outline">
               <a
                 href="https://analytics.google.com/"
                 target="_blank"

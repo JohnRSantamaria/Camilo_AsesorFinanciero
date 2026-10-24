@@ -28,6 +28,18 @@ export default function NavbarMenu() {
             className="mx-4"
           />
           <CustomLink
+            href="/libro"
+            title="Libro"
+            className="mx-4"
+            onClick={() =>
+              trackEvent({
+                action: "libro_nav_click",
+                category: "libro",
+                label: "navbar",
+              })
+            }
+          />
+          <CustomLink
             href="/blog"
             title="Blog"
             className="mx-4"

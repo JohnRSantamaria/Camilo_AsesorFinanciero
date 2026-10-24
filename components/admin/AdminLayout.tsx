@@ -17,6 +17,7 @@ type AdminLayoutProps = {
 const navItems = [
   { href: "/admin", label: "Dashboard" },
   { href: "/admin/posts", label: "Posts" },
+  { href: "/admin/products", label: "Productos" },
 ];
 
 export default function AdminLayout({

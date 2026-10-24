@@ -3,6 +3,7 @@ import { createPublicClient } from "@/lib/supabase/public";
 import { isPostLive } from "@/lib/posts/visibility";
 import { absoluteUrl, SITE_URL } from "@/lib/seo";
 import type { Post } from "@/types/post";
+import type { Product } from "@/types/product";
 
 function escapeXml(value: string) {
   return value
@@ -27,6 +28,7 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
   const staticUrls = [
     urlEntry(SITE_URL, null, "1.0"),
     urlEntry(absoluteUrl("/blog"), null, "0.9"),
+    urlEntry(absoluteUrl("/libro"), null, "0.9"),
     urlEntry(absoluteUrl("/privacidad"), null, "0.3"),
   ];
 
@@ -55,9 +57,26 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
     postUrls = [];
   }
 
+  let productUrls: string[] = [];
+  try {
+    const supabase = createPublicClient();
+    const { data } = await supabase
+      .from("products")
+      .select("slug, updated_at")
+      .eq("published", true)
+      .order("sort_order", { ascending: true });
+
+    productUrls = ((data ?? []) as Pick<Product, "slug" | "updated_at">[]).map(
+      (product) =>
+        urlEntry(absoluteUrl(`/libro/${product.slug}`), product.updated_at, "0.8")
+    );
+  } catch {
+    productUrls = [];
+  }
+
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${[...staticUrls, ...postUrls].join("\n")}
+${[...staticUrls, ...postUrls, ...productUrls].join("\n")}
 </urlset>`;
 
   res.setHeader("Content-Type", "text/xml; charset=utf-8");

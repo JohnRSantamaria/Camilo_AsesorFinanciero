@@ -5,11 +5,17 @@ type Sortable = {
 	sort_order: number;
 };
 
-export async function swapSortOrder(a: Sortable, b: Sortable) {
+type SortTable = 'posts' | 'products';
+
+export async function swapSortOrder(
+	a: Sortable,
+	b: Sortable,
+	table: SortTable = 'posts'
+) {
 	const supabase = createClient();
 
 	const {error: errorA} = await supabase
-		.from('posts')
+		.from(table)
 		.update({sort_order: b.sort_order})
 		.eq('id', a.id);
 
@@ -18,23 +24,22 @@ export async function swapSortOrder(a: Sortable, b: Sortable) {
 	}
 
 	const {error: errorB} = await supabase
-		.from('posts')
+		.from(table)
 		.update({sort_order: a.sort_order})
 		.eq('id', b.id);
 
 	if (errorB) {
-		// Best-effort rollback of A
-		await supabase.from('posts').update({sort_order: a.sort_order}).eq('id', a.id);
+		await supabase.from(table).update({sort_order: a.sort_order}).eq('id', a.id);
 		return {error: errorB.message};
 	}
 
 	return {error: null};
 }
 
-export async function nextSortOrder(): Promise<number> {
+export async function nextSortOrder(table: SortTable = 'posts'): Promise<number> {
 	const supabase = createClient();
 	const {data} = await supabase
-		.from('posts')
+		.from(table)
 		.select('sort_order')
 		.order('sort_order', {ascending: false})
 		.limit(1)

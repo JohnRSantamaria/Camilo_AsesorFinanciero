@@ -9,9 +9,15 @@ type CoverImageFieldProps = {
 	value: string | null | undefined;
 	onChange: (url: string) => void;
 	userId: string;
+	label?: string;
 };
 
-export default function CoverImageField({value, onChange, userId}: CoverImageFieldProps) {
+export default function CoverImageField({
+	value,
+	onChange,
+	userId,
+	label = 'Imagen de portada',
+}: CoverImageFieldProps) {
 	const [isUploading, setIsUploading] = useState(false);
 
 	const handleFileChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -38,13 +44,13 @@ export default function CoverImageField({value, onChange, userId}: CoverImageFie
 
 	return (
 		<div className='grid gap-3'>
-			<Label>Imagen de portada</Label>
+			<Label>{label}</Label>
 			{value ? (
 				<div className='relative w-full max-w-md overflow-hidden rounded-lg border border-border'>
 					{/* eslint-disable-next-line @next/next/no-img-element */}
 					<img
 						src={value}
-						alt='Portada del post'
+						alt={label}
 						className='h-40 w-full object-cover'
 					/>
 					<div className='flex gap-2 p-2'>

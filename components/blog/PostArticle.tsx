@@ -8,12 +8,7 @@ import AnimatedText from "../framerMotion/AnimatedText";
 type PostArticleProps = {
   post: Pick<
     Post,
-    | "title"
-    | "excerpt"
-    | "content"
-    | "cover_image"
-    | "video_url"
-    | "published_at"
+    "title" | "excerpt" | "content" | "cover_image" | "video_url" | "published_at"
   >;
 };
 
@@ -43,7 +38,18 @@ export default function PostArticle({ post }: PostArticleProps) {
         </div>
       </header>
 
-      {/* hero image */}
+      {post.cover_image ? (
+        <div className="relative aspect-[16/9] w-full overflow-hidden rounded-2xl bg-stone-200 dark:bg-zinc-800">
+          <Image
+            src={post.cover_image}
+            alt={post.title}
+            fill
+            priority
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, 896px"
+          />
+        </div>
+      ) : null}
 
       {post.video_url ? (
         <YouTubeEmbed url={post.video_url} title={post.title} />
@@ -57,7 +63,6 @@ export default function PostArticle({ post }: PostArticleProps) {
         ) : null}
       </div>
 
-      {/* content */}
       <PostContent content={post.content} />
     </article>
   );

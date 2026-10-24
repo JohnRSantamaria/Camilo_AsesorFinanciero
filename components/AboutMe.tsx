@@ -1,7 +1,7 @@
 import React from "react";
 import AnimatedText from "./framerMotion/AnimatedText";
 import Image from "next/image";
-import me from "@/public/Image/financial_advisor.jpg";
+import me from "@/public/Image/avatar.jpeg";
 import SectionsLayout from "./SectionsLayout";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -49,7 +49,7 @@ export default function AboutMe() {
                 className="w-full max-w-xs md:w-96"
               >
                 <Link
-                  href="/cv/HV_Camilo_Meza.pdf"
+                  href="/cv/cv.pdf" 
                   target={"_blank"}
                   download={true}
                   className="inline-flex items-center gap-2"

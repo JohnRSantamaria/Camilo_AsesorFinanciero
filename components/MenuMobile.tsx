@@ -13,6 +13,7 @@ const navLinks = [
   { href: "/", label: "Inicio" },
   { href: homeSectionHref("servicios"), label: "Servicios" },
   { href: homeSectionHref("aboutMe"), label: "Acerca de mí" },
+  { href: "/libro", label: "Libro" },
   { href: "/blog", label: "Blog", trackLabel: "mobile_menu" as const },
 ];
 
