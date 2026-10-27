@@ -20,7 +20,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
   return (
     <article className="mx-auto flex max-w-3xl flex-col gap-6">
 
-      <AnimatedText text={product.title} />
+      <AnimatedText text={product.title.split("-")[0]} />
 
       {product.cover_image ? (
         <div className="relative mx-auto aspect-[2/3] w-full max-w-xs overflow-hidden rounded-2xl bg-stone-200 shadow-lg dark:bg-zinc-800">
