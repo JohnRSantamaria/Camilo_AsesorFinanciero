@@ -7,6 +7,7 @@ import Layout from "@/components/Layout";
 import ProductDetail from "@/components/libro/ProductDetail";
 import SeoHead from "@/components/seo/SeoHead";
 import { createPublicClient } from "@/lib/supabase/public";
+import { isEmptyEditorHtml, plainTextFromHtml } from "@/lib/posts/editorHtml";
 import type { Product } from "@/types/product";
 
 const raleway = Raleway({ subsets: ["latin"] });
@@ -16,7 +17,11 @@ type LibroProductPageProps = {
 };
 
 export default function LibroProductPage({ product }: LibroProductPageProps) {
-  const description = product.description.trim().slice(0, 160);
+  const previewSource =
+    product.short_description && !isEmptyEditorHtml(product.short_description)
+      ? product.short_description
+      : product.description;
+  const description = plainTextFromHtml(previewSource).slice(0, 160);
 
   return (
     <>

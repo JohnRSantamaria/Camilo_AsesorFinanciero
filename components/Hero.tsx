@@ -19,7 +19,11 @@ function PrincipalImage({ className }: { className?: string }) {
   );
 }
 
-export default function Hero() {
+type HeroProps = {
+  ctaUrl: string;
+};
+
+export default function Hero({ ctaUrl }: HeroProps) {
   const router = useRouter();
   const handleClick = () => {
     trackEvent({
@@ -27,7 +31,7 @@ export default function Hero() {
       category: "conversion",
       label: "hero",
     });
-    router.push("https://mpago.li/1UDp3NJ");
+    router.push(ctaUrl);
   };
 
   return (

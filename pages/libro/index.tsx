@@ -9,11 +9,12 @@ import Layout from "@/components/Layout";
 import AnimatedText from "@/components/framerMotion/AnimatedText";
 import SeoHead from "@/components/seo/SeoHead";
 import { createPublicClient } from "@/lib/supabase/public";
+import { isEmptyEditorHtml } from "@/lib/posts/editorHtml";
+import PostContent from "@/components/blog/PostContent";
 import type { Product } from "@/types/product";
 import {
   Card,
   CardContent,
-  CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
@@ -54,23 +55,23 @@ export default function LibroIndexPage({ products }: LibroIndexProps) {
                       <Card
                         className={
                           product.cover_image
-                            ? "flex h-72 w-full flex-row items-center justify-between gap-6"
+                            ? "flex w-full flex-row items-center gap-6"
                             : undefined
                         }
                       >
                         {product.cover_image ? (
-                          <div className="relative h-full w-1/3">
+                          <div className="relative aspect-[2/3] w-36 shrink-0 overflow-hidden rounded-2xl bg-stone-200 shadow-lg dark:bg-zinc-800 sm:w-40">
                             <Image
                               src={product.cover_image}
                               alt={product.title}
                               fill
-                              className="rounded-2xl object-cover shadow-lg"
-                              sizes="(max-width: 768px) 40vw, 280px"
+                              className="object-contain"
+                              sizes="160px"
                             />
                           </div>
                         ) : null}
                         <div
-                          className={`${product.cover_image ? "w-2/3" : "w-full"} flex h-full min-h-0 flex-col justify-between`}
+                          className={`${product.cover_image ? "min-w-0 flex-1" : "w-full"} flex flex-col justify-between`}
                         >
                           <CardHeader>
                             <CardTitle className="text-xl text-primary">
@@ -78,9 +79,14 @@ export default function LibroIndexPage({ products }: LibroIndexProps) {
                             </CardTitle>
                           </CardHeader>
                           <CardContent className="flex-1 overflow-hidden">
-                            <CardDescription className="line-clamp-4 whitespace-pre-line">
-                              {product.description}
-                            </CardDescription>
+                            <PostContent
+                              content={
+                                product.short_description &&
+                                !isEmptyEditorHtml(product.short_description)
+                                  ? product.short_description
+                                  : product.description
+                              }
+                            />
                           </CardContent>
                           <CardFooter>
                             <span className="text-sm font-medium text-primary">

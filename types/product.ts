@@ -2,6 +2,7 @@ export type Product = {
 	id: string;
 	title: string;
 	slug: string;
+	short_description: string | null;
 	description: string;
 	cover_image: string | null;
 	payment_url: string;
@@ -15,6 +16,7 @@ export type Product = {
 export type ProductInsert = {
 	title: string;
 	slug: string;
+	short_description?: string | null;
 	description: string;
 	cover_image?: string | null;
 	payment_url: string;

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { GetServerSideProps } from "next";
 import { Raleway } from "next/font/google";
 
 import { IoArrowUpCircleOutline } from "react-icons/io5";
@@ -12,10 +13,16 @@ import NavbarMenu from "@/components/NavbarMenu";
 import MobileNabBarMenu from "@/components/MobileNabBarMenu";
 import SeoHead from "@/components/seo/SeoHead";
 import { DEFAULT_DESCRIPTION } from "@/lib/seo";
+import { createPublicClient } from "@/lib/supabase/public";
+import { DEFAULT_HERO_CTA_URL, HERO_CTA_SETTING_KEY } from "@/lib/settings/hero";
 
 const raleway = Raleway({ subsets: ["latin"] });
 
-export default function Home() {
+type HomeProps = {
+  heroCtaUrl: string;
+};
+
+export default function Home({ heroCtaUrl }: HomeProps) {
   return (
     <>
       <SeoHead
@@ -31,7 +38,7 @@ export default function Home() {
           <div className="flex flex-col h-svh w-full shrink-0">
             <NavbarMenu />
             <MobileNabBarMenu />
-            <Hero />
+            <Hero ctaUrl={heroCtaUrl} />
           </div>
           <Services />
           <AboutMe />
@@ -46,3 +53,24 @@ export default function Home() {
     </>
   );
 }
+
+export const getServerSideProps: GetServerSideProps<HomeProps> = async () => {
+  try {
+    const supabase = createPublicClient();
+    const { data, error } = await supabase
+      .from("site_settings")
+      .select("value")
+      .eq("key", HERO_CTA_SETTING_KEY)
+      .maybeSingle();
+
+    const value = data?.value;
+    const heroCtaUrl =
+      !error && typeof value === "string" && value.startsWith("https://")
+        ? value
+        : DEFAULT_HERO_CTA_URL;
+
+    return { props: { heroCtaUrl } };
+  } catch {
+    return { props: { heroCtaUrl: DEFAULT_HERO_CTA_URL } };
+  }
+};

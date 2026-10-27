@@ -6,6 +6,7 @@ import {useRouter} from 'next/router';
 import {createClient} from '@/lib/supabase/client';
 import {productFormSchema, type ProductFormValues} from '@/lib/products/schema';
 import {slugify} from '@/lib/posts/slug';
+import {isEmptyEditorHtml} from '@/lib/posts/editorHtml';
 import {nextSortOrder} from '@/lib/posts/reorder';
 import type {Product} from '@/types/product';
 import {
@@ -18,10 +19,10 @@ import {
 	FormMessage,
 } from '@/components/ui/form';
 import {Input} from '@/components/ui/input';
-import {Textarea} from '@/components/ui/textarea';
 import {Button} from '@/components/ui/button';
 import {Switch} from '@/components/ui/switch';
 import CoverImageField from '@/components/admin/CoverImageField';
+import RichTextEditor from '@/components/admin/RichTextEditor';
 
 type ProductFormProps = {
 	userId: string;
@@ -41,6 +42,7 @@ export default function ProductForm({userId, initialProduct}: ProductFormProps) 
 		defaultValues: {
 			title: initialProduct?.title ?? '',
 			slug: initialProduct?.slug ?? '',
+			short_description: initialProduct?.short_description ?? '',
 			description: initialProduct?.description ?? '',
 			cover_image: initialProduct?.cover_image ?? '',
 			payment_url: initialProduct?.payment_url ?? '',
@@ -68,7 +70,10 @@ export default function ProductForm({userId, initialProduct}: ProductFormProps) 
 		const payload = {
 			title: values.title.trim(),
 			slug: values.slug.trim(),
-			description: values.description.trim(),
+			short_description: isEmptyEditorHtml(values.short_description)
+				? ''
+				: values.short_description,
+			description: isEmptyEditorHtml(values.description) ? '' : values.description,
 			cover_image: cover,
 			payment_url: values.payment_url.trim(),
 			payment_label: paymentLabel,
@@ -166,19 +171,42 @@ export default function ProductForm({userId, initialProduct}: ProductFormProps) 
 
 				<FormField
 					control={form.control}
+					name='short_description'
+					render={({field}) => (
+						<FormItem>
+							<FormLabel>Descripción corta</FormLabel>
+							<FormControl>
+								<RichTextEditor
+									value={field.value}
+									onChange={field.onChange}
+									userId={userId}
+								/>
+							</FormControl>
+							<FormDescription>
+								Se muestra en la tarjeta de /libro, antes de abrir la ficha. Mismo formato que
+								la descripción, sin límite de caracteres.
+							</FormDescription>
+							<FormMessage />
+						</FormItem>
+					)}
+				/>
+
+				<FormField
+					control={form.control}
 					name='description'
 					render={({field}) => (
 						<FormItem>
 							<FormLabel>Descripción</FormLabel>
 							<FormControl>
-								<Textarea
-									{...field}
-									rows={8}
-									maxLength={4000}
-									className='bg-light dark:bg-dark'
+								<RichTextEditor
+									value={field.value}
+									onChange={field.onChange}
+									userId={userId}
 								/>
 							</FormControl>
-							<FormDescription>{(field.value ?? '').length}/4000</FormDescription>
+							<FormDescription>
+								Se muestra al abrir la ficha del libro. Mismo formato, sin límite de caracteres.
+							</FormDescription>
 							<FormMessage />
 						</FormItem>
 					)}

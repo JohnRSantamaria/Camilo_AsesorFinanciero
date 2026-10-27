@@ -16,6 +16,7 @@ type AdminLayoutProps = {
 
 const navItems = [
   { href: "/admin", label: "Dashboard" },
+  { href: "/admin/inicio", label: "Inicio" },
   { href: "/admin/posts", label: "Posts" },
   { href: "/admin/products", label: "Productos" },
 ];
